@@ -1,0 +1,11 @@
+[user]
+	name = itkr
+	email = g600392@gmail.com
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true
+[alias]
+  s = status
+  b = branch
+  co = checkout
