@@ -4,7 +4,13 @@
 [credential]
 	helper = osxkeychain
 [color]
-	ui = true
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
+	editor = /usr/bin/vim
+	quotepath = false
+[push]
+	default = current
 [alias]
   s = status
   b = branch
