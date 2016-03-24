@@ -10,6 +10,8 @@ $cli set remap.right_command_arrow_to_scroll 1
 /bin/echo -n .
 $cli set remap.simultaneouskeypresses_mouse_keys_mode_df 1
 /bin/echo -n .
+$cli set general.treat_unifying_as_pointing_device 1
+/bin/echo -n .
 $cli set general.disable_internal_keyboard_if_external_keyboard_exsits 1
 /bin/echo -n .
 $cli set remap.hjkl_arrow 1
