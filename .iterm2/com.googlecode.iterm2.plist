@@ -3163,6 +3163,10 @@
 	<string>C269895E-6EC3-4863-B973-9FCB90185289</string>
 	<key>NoSyncLastTipTime</key>
 	<real>499053638.34039497</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -3222,7 +3226,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/syota.itakura/.iterm2</string>
+	<string>~/.iterm2</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
