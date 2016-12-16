@@ -42,7 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-"Plug 'Shougo/vimfiler'
+"Plug 'Shougo/vimfiler.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -154,12 +154,18 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" number settings
+set nrformats=
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
 syntax on
 set ruler
 set number
+
+" visual mode color
+autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -187,7 +193,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -195,7 +201,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
+
 endif
 
 
@@ -232,6 +238,10 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
+
+" cursor
+"set cursorcolumn
+"set cursorline
 
 "*****************************************************************************
 "" Abbreviations
