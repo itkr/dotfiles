@@ -1171,11 +1171,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 305 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-475 1299 796 473 -926 800 1920 1057 </string>
+	<string>54 1377 796 473 -926 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-859 903 1670 707 -926 800 1920 1057 </string>
+	<string>0 121 1187 656 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-593 1031 1348 826 -926 800 1920 1057 </string>
+	<string>-349 1033 1257 775 -926 800 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1377,37 +1377,45 @@
 			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.51685798168182373</real>
+				<real>0.81631237268447876</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.50962930917739868</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.44058024883270264</real>
+				<real>0.98510855436325073</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.25</real>
+				<real>0.493896484375</real>
 				<key>Blue Component</key>
-				<real>0.23587349057197571</real>
+				<real>0.23587346076965332</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.22017267346382141</real>
+				<real>0.22017264366149902</real>
 				<key>Red Component</key>
 				<real>0.17352232336997986</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.19370138645172119</real>
+				<real>0.99874031543731689</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.15575926005840302</real>
+				<real>0.77726268768310547</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.10177350789308548</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1804,7 +1812,7 @@
 			<key>Silence Bell</key>
 			<true/>
 			<key>Smart Cursor Color</key>
-			<true/>
+			<false/>
 			<key>Smart Selection Rules</key>
 			<array>
 				<dict>
@@ -2768,7 +2776,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-12-06T04:07:03Z</date>
+	<date>2016-12-16T03:04:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
