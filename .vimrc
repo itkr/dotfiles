@@ -42,7 +42,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-"Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -241,7 +242,7 @@ let g:airline_skip_empty_sections = 1
 
 " cursor
 "set cursorcolumn
-"set cursorline
+set cursorline
 
 "*****************************************************************************
 "" Abbreviations
