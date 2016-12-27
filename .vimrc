@@ -42,6 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+" - SI -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 
@@ -69,6 +70,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai' "molokai
+" - ST -
 Plug 'altercation/vim-colors-solarized' " solarized
 Plug 'w0ng/vim-hybrid' "hybrid
 
@@ -155,8 +157,13 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" - ST -
 " number settings
 set nrformats=
+
+" - ST -
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 "*****************************************************************************
 "" Visual Settings
@@ -170,6 +177,7 @@ autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
+  " - ST -
   "colorscheme molokai
   "colorscheme solarized
   colorscheme hybrid
@@ -240,6 +248,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
+" - ST -
 " cursor
 "set cursorcolumn
 set cursorline
