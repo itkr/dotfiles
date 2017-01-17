@@ -161,9 +161,6 @@ let g:session_command_aliases = 1
 " number settings
 set nrformats=
 
-" - ST -
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 "*****************************************************************************
 "" Visual Settings
@@ -463,6 +460,10 @@ vnoremap K :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
+
+" - ST -
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 "*****************************************************************************
 "" Custom configs
