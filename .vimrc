@@ -80,7 +80,7 @@ Plug 'w0ng/vim-hybrid' "hybrid
 
 " html
 "" HTML Bundle
-Plug 'amirh/HTML-AutoCloseTag'
+Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
@@ -191,6 +191,7 @@ if has("gui_running")
     " - ST -
     "set transparency=7
     set transparency=0
+    set background=light
   endif
 else
   let g:CSApprox_loaded = 1
