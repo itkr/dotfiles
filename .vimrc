@@ -250,7 +250,7 @@ let g:airline_skip_empty_sections = 1
 
 " - ST -
 " cursor
-set cursorcolumn
+"set cursorcolumn
 set cursorline
 
 "*****************************************************************************
@@ -448,10 +448,15 @@ noremap <leader>c :bd<CR>
 nnoremap <silent> <leader><space> :noh<cr>
 
 "" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
+" - ST -
+"noremap <C-j> <C-w>j
+"noremap <C-k> <C-w>k
+"noremap <C-l> <C-w>l
+"noremap <C-h> <C-w>h
+noremap <C-j> <C-w>-
+noremap <C-k> <C-w>+
+noremap <C-l> <C-w>>
+noremap <C-h> <C-w><
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
