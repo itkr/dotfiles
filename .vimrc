@@ -42,7 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-" - SI -
+" - ST -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 
@@ -80,7 +80,6 @@ Plug 'w0ng/vim-hybrid' "hybrid
 
 " html
 "" HTML Bundle
-Plug 'vim-scripts/HTML-AutoCloseTag'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
@@ -175,8 +174,6 @@ autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
   " - ST -
-  "colorscheme molokai
-  "colorscheme solarized
   colorscheme hybrid
 endif
 
@@ -189,9 +186,9 @@ if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
     " - ST -
-    "set transparency=7
     set transparency=0
     set background=light
+    colorscheme solarized
   endif
 else
   let g:CSApprox_loaded = 1
