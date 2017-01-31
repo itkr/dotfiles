@@ -266,6 +266,9 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+" - ST -
+cnoreabbrev bd Bd
+
 
 "" NERDTree configuration
 " let g:NERDTreeChDirMode=2
