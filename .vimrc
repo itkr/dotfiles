@@ -47,6 +47,7 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 "Plug 'kevinw/pyflakes-vim'
 "Plug 'lambdalisue/vim-pyenv'
+Plug 'moll/vim-bbye'
 
 let g:make = 'gmake'
 if exists('make')
