@@ -25,8 +25,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -45,6 +45,8 @@ Plug 'avelino/vim-bootstrap-updater'
 " - ST -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+"Plug 'kevinw/pyflakes-vim'
+"Plug 'lambdalisue/vim-pyenv'
 
 let g:make = 'gmake'
 if exists('make')
@@ -180,7 +182,6 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -247,8 +248,8 @@ let g:airline_skip_empty_sections = 1
 
 " - ST -
 " cursor
-"set cursorcolumn
 set cursorline
+highlight Cursor guifg=NONE guibg=#ff39d9
 
 "*****************************************************************************
 "" Abbreviations
@@ -266,16 +267,18 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 "" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
+" let g:NERDTreeChDirMode=2
+" let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+" let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+" let g:NERDTreeShowBookmarks=1
+" let g:nerdtree_tabs_focus_on_files=1
+" let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+" let g:NERDTreeWinSize = 50
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+" nnoremap <silent> <F2> :NERDTreeFind<CR>
+" noremap <F3> :NERDTreeToggle<CR>
+" - ST -
+noremap <F3> :VimFilerExplorer<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -442,7 +445,7 @@ noremap <leader>w :bn<CR>
 noremap <leader>c :bd<CR>
 
 "" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
+"nnoremap <silent> <leader><space> :noh<cr>
 
 "" Switching windows
 " - ST -
@@ -564,3 +567,5 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+" edit vimrc
+command Preferences edit $MYVIMRC
