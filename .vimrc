@@ -33,7 +33,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
@@ -42,16 +41,15 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+Plug 'sheerun/vim-polyglot'
 " - ST -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-"Plug 'kevinw/pyflakes-vim'
-"Plug 'lambdalisue/vim-pyenv'
 Plug 'moll/vim-bbye'
 
 let g:make = 'gmake'
 if exists('make')
-        let g:make = 'make'
+  let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
 
@@ -97,6 +95,8 @@ Plug 'jelera/vim-javascript-syntax'
 " python
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'
+"Plug 'kevinw/pyflakes-vim'
+"Plug 'lambdalisue/vim-pyenv'
 
 
 "*****************************************************************************
@@ -160,7 +160,7 @@ let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
 " - ST -
-" number settings
+" number settings (10進数を扱う)
 set nrformats=
 
 
@@ -172,7 +172,7 @@ set ruler
 set number
 
 " visual mode color
-autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
+"autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -345,6 +345,7 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -446,7 +447,7 @@ noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :bd<CR>
+noremap <leader>c :Bd<CR>
 
 "" Clean search (highlight)
 "nnoremap <silent> <leader><space> :noh<cr>
@@ -476,6 +477,10 @@ nnoremap <Leader>o :.Gbrowse<CR>
 " - ST -
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" - ST -
+" edit vimrc
+command Preferences edit $MYVIMRC
 
 "*****************************************************************************
 "" Custom configs
@@ -521,6 +526,11 @@ let g:syntastic_python_checkers=['python', 'flake8']
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
+
+" Syntax highlight
+" Default highlight is better than polyglot
+let g:polyglot_disabled = ['python']
+let python_highlight_all = 1
 
 
 "*****************************************************************************
@@ -571,5 +581,3 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
-" edit vimrc
-command Preferences edit $MYVIMRC
