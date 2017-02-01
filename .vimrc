@@ -281,7 +281,16 @@ cnoreabbrev bd Bd
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 " nnoremap <silent> <F2> :NERDTreeFind<CR>
 " noremap <F3> :NERDTreeToggle<CR>
+
 " - ST -
+"" VimFiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_tree_leaf_icon = '⋮'
+let g:vimfiler_tree_opened_icon = '▿'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+let g:vimfiler_readonly_file_icon = '✗'
 noremap <F3> :VimFilerExplorer<CR>
 
 " grep.vim
