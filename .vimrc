@@ -7,9 +7,6 @@ endif
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "html,javascript,python"
-let g:vim_bootstrap_editor = "vim"				" nvim or vim
-
 if !filereadable(vimplug_exists)
     echo "Installing Vim-Plug..."
     echo ""
@@ -25,8 +22,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-" Plug 'scrooloose/nerdtree'
-" Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -40,13 +35,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
-Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 " - ST -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'moll/vim-bbye'
-Plug 'powerline/powerline'
+Plug 'powerline/powerline'  " Bdelete を追加
 
 let g:make = 'gmake'
 if exists('make')
@@ -164,6 +158,10 @@ let g:session_command_aliases = 1
 "" Number settings (10進数を扱う)
 set nrformats=
 
+" - ST -
+" 検索をループさせない
+set nowrapscan
+
 
 "*****************************************************************************
 "" Visual Settings
@@ -270,19 +268,6 @@ cnoreabbrev Qall qall
 " - ST -
 cnoreabbrev bd Bd
 
-
-"" NERDTree configuration
-" let g:NERDTreeChDirMode=2
-" let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-" let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-" let g:NERDTreeShowBookmarks=1
-" let g:nerdtree_tabs_focus_on_files=1
-" let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-" let g:NERDTreeWinSize = 50
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-" nnoremap <silent> <F2> :NERDTreeFind<CR>
-" noremap <F3> :NERDTreeToggle<CR>
-
 " - ST -
 "" VimFiler
 let g:vimfiler_as_default_explorer = 1
@@ -292,6 +277,7 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_ignore_pattern='\(^\.\|\.pyc$\|\.db$\|\.sqlite$\|\.rbc$\)'
 noremap <F3> :VimFilerExplorer<CR>
 
 " grep.vim
@@ -305,11 +291,7 @@ let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
 " terminal emulation
-if g:vim_bootstrap_editor == 'nvim'
-    nnoremap <silent> <leader>sh :terminal<CR>
-else
-    nnoremap <silent> <leader>sh :VimShellCreate<CR>
-endif
+nnoremap <silent> <leader>sh :VimShellCreate<CR>
 
 "*****************************************************************************
 "" Functions
@@ -356,10 +338,6 @@ set autoread
 "" Mappings
 "*****************************************************************************
 
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
@@ -379,7 +357,6 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -459,9 +436,6 @@ noremap <leader>w :bn<CR>
 "" Close buffer
 noremap <leader>c :Bd<CR>
 
-"" Clean search (highlight)
-"nnoremap <silent> <leader><space> :noh<cr>
-
 "" Switching windows
 " - ST -
 noremap <C-j> <C-w>-
@@ -485,14 +459,14 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " - ST -
-" edit vimrc
-command Preferences edit $MYVIMRC
-
-" - ST -
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+
+" - ST -
+" edit vimrc
+command! Preferences edit $MYVIMRC
 
 
 "*****************************************************************************
