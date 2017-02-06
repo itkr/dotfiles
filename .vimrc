@@ -22,25 +22,24 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/syntastic'
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
-" - ST -
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-Plug 'moll/vim-bbye'
-Plug 'powerline/powerline'  " Bdelete を追加
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'moll/vim-bbye'  " Bdelete を追加
+"Plug 'powerline/powerline'
+Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/CSApprox'
+Plug 'vim-scripts/grep.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -160,7 +159,7 @@ set nrformats=
 
 " - ST -
 " 検索をループさせない
-set nowrapscan
+"set nowrapscan
 
 
 "*****************************************************************************
@@ -288,7 +287,7 @@ let Grep_Skip_Dirs = '.git node_modules'
 
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
+let g:vimshell_prompt =  '$_'
 
 " terminal emulation
 nnoremap <silent> <leader>sh :VimShellCreate<CR>
@@ -418,7 +417,8 @@ if has('unnamedplus')
 endif
 
 noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
+noremap <leader>p "+gp<CR>
+noremap <leader>P "+gP<CR>
 noremap XX "+x<CR>
 
 if has('macunix')
