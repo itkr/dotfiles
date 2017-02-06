@@ -165,8 +165,12 @@ syntax on
 set ruler
 set number
 
-" ビジュアルモード見やすい色に
-autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
+augroup change-color-scheme
+    " ビジュアルモード見やすい色に
+    autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
+    " カーソルの色
+    autocmd ColorScheme * highlight Cursor guifg=NONE guibg=#ff39d9
+augroup END
 
 if !exists('g:not_finish_vimplug')
     colorscheme hybrid
@@ -238,20 +242,17 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
-" - ST -
-" Cursor
+" カーソル
 set cursorline
-highlight Cursor guifg=NONE guibg=#ff39d9
 
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
 
-" - ST -
+" vim-bbye
 cnoreabbrev bd Bd
 
-" - ST -
-"" VimFiler
+" VimFiler
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_tree_leaf_icon = '⋮'
 let g:vimfiler_tree_opened_icon = '▿'
