@@ -23,21 +23,20 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/unite.vim'  " 統合インターフェイス
+Plug 'Shougo/vimfiler.vim'  " ファイラ
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'  " ファイル検索
 Plug 'majutsushi/tagbar'
-Plug 'moll/vim-bbye'  " Bdelete を追加
-"Plug 'powerline/powerline'
-Plug 'scrooloose/syntastic'
+Plug 'moll/vim-bbye'  " Bdelete(window構造を変更せずにbdelete) を追加
+Plug 'scrooloose/syntastic'  " 構文チェック
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'  " vim を見やすく表示
+Plug 'vim-airline/vim-airline-themes'  " vim を見やすく表示(theme)
 Plug 'vim-scripts/CSApprox'
 Plug 'vim-scripts/grep.vim'
 
@@ -52,7 +51,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 if v:version >= 703
-    Plug 'Shougo/vimshell.vim'
+    Plug 'Shougo/vimshell.vim'  " Vim でシェルを動かす
 endif
 
 if v:version >= 704
@@ -64,10 +63,10 @@ endif
 Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'tomasr/molokai' "molokai
-" - ST -
-Plug 'altercation/vim-colors-solarized' " solarized
-Plug 'w0ng/vim-hybrid' "hybrid
+Plug 'altercation/vim-colors-solarized'  " colorscheme
+Plug 'chriskempson/vim-tomorrow-theme'  " colorscheme
+Plug 'tomasr/molokai'  " colorscheme
+Plug 'w0ng/vim-hybrid'  " colorscheme
 
 "*****************************************************************************
 "" Custom bundles
@@ -75,10 +74,10 @@ Plug 'w0ng/vim-hybrid' "hybrid
 
 " html
 "" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
 
 
 " javascript
@@ -88,7 +87,8 @@ Plug 'jelera/vim-javascript-syntax'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'  " python のコード補完
+"Plug 'hdima/python-syntax'  " python のシンタックスグループを追加
 "Plug 'kevinw/pyflakes-vim'
 "Plug 'lambdalisue/vim-pyenv'
 
@@ -156,10 +156,6 @@ let g:session_command_aliases = 1
 " - ST -
 "" Number settings (10進数を扱う)
 set nrformats=
-
-" - ST -
-" 検索をループさせない
-"set nowrapscan
 
 
 "*****************************************************************************
@@ -246,7 +242,7 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
 " - ST -
-" cursor
+" Cursor
 set cursorline
 highlight Cursor guifg=NONE guibg=#ff39d9
 
@@ -366,7 +362,8 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" ctrlp.vim
+" CtrlP はあまり使わないので削除対象
+" CtrlP
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
@@ -455,8 +452,11 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <Leader>o :.Gbrowse<CR>
 
 " - ST -
+" コマンドラインでの入力をEmacsっぽく
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
 
 " - ST -
 noremap j gj
@@ -568,3 +568,7 @@ else
     let g:airline_symbols.linenr = ''
 endif
 
+" - ST -
+if filereadable(expand("~/.vim/colors/custom_color.vim"))
+    source ~/.vim/colors/custom_color.vim
+endif
