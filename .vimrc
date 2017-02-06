@@ -31,14 +31,14 @@ Plug 'Raimondi/delimitMate'
 Plug 'Shougo/unite.vim'  " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'  " ファイラ
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'  " 変更箇所表示(git)
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'  " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'scrooloose/syntastic'  " 構文チェック
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'  " Git 操作する
 Plug 'vim-airline/vim-airline'  " vim を見やすく表示
 Plug 'vim-airline/vim-airline-themes'  " vim を見やすく表示(theme)
 Plug 'vim-scripts/CSApprox'
@@ -107,6 +107,15 @@ filetype plugin indent on
 "" Basic Setup
 "*****************************************************************************"
 
+"" Session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+"" Map leader to ,
+let mapleader=','
+
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -123,9 +132,6 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
-
-"" Map leader to ,
-let mapleader=','
 
 "" Enable hidden buffers
 set hidden
@@ -144,12 +150,6 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
 
-"" Session management
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
 "" 10進数を扱う
 set nrformats=
 
@@ -158,6 +158,9 @@ set nrformats=
 "" Visual Settings
 "*****************************************************************************
 
+" (syntax on の前に書く :h no_buffers_menu)
+let no_buffers_menu=1
+
 syntax on
 set ruler
 set number
@@ -165,9 +168,7 @@ set number
 " ビジュアルモード見やすい色に
 autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 
-let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    " - ST -
     colorscheme hybrid
 endif
 
@@ -357,11 +358,11 @@ noremap <leader>P "+gP<CR>
 noremap XX "+x<CR>
 
 "" クリップボードの利用(検討)
-if has('macunix')
-    " pbcopy for OSX copy/paste
-    vmap <C-x> :!pbcopy<CR>
-    vmap <C-c> :w !pbcopy<CR><CR>
-endif
+"if has('macunix')
+"    " pbcopy for OSX copy/paste
+"    vmap <C-x> :!pbcopy<CR>
+"    vmap <C-c> :w !pbcopy<CR><CR>
+"endif
 
 "" バッファ操作(検討)
 noremap <leader>z :bp<CR>
