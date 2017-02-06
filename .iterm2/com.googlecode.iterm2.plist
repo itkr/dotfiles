@@ -1137,6 +1137,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Downloads/mbadolato-iTerm2-Color-Schemes-18c5aff/schemes</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -1167,13 +1169,13 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>835 99 445 77 0 0 1280 777 </string>
+	<string>725 292 445 77 0 0 1280 777 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 305 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>54 1377 796 473 -926 800 1920 1057 </string>
+	<string>252 193 918 495 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 121 1187 656 0 0 1280 777 </string>
+	<string>2 223 970 554 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-349 1033 1257 775 -926 800 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -1391,13 +1393,13 @@
 			<key>Cursor Guide Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.493896484375</real>
+				<real>0.19607843137254902</real>
 				<key>Blue Component</key>
-				<real>0.23587346076965332</real>
+				<real>0.23587334156036377</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.22017264366149902</real>
+				<real>0.22017256915569305</real>
 				<key>Red Component</key>
 				<real>0.17352232336997986</real>
 			</dict>
@@ -2776,7 +2778,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-12-16T03:04:02Z</date>
+	<date>2017-02-01T02:38:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2824,7 +2826,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.12</string>
+	<string>3.0.13</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
