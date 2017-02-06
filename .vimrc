@@ -1,6 +1,10 @@
+" TODO: 不要なものを削る
+" TODO: GUI 関連を分離する
+
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
+
 if has('vim_starting')
     set nocompatible               " Be iMproved
 endif
@@ -22,13 +26,13 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/unite.vim'  " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'  " ファイラ
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'  " ファイル検索
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'  " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'scrooloose/syntastic'  " 構文チェック
@@ -87,19 +91,11 @@ Plug 'jelera/vim-javascript-syntax'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'  " python のコード補完
-"Plug 'hdima/python-syntax'  " python のシンタックスグループを追加
+Plug 'davidhalter/jedi-vim'  " pythonのコード補完
+"Plug 'hdima/python-syntax'  " pythonのシンタックスグループを追加
 "Plug 'kevinw/pyflakes-vim'
-"Plug 'lambdalisue/vim-pyenv'
+"Plug 'lambdalisue/vim-pyenv'  " Vimでpyenvを扱う
 
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-    source ~/.vimrc.local.bundles
-endif
 
 call plug#end()
 
@@ -110,6 +106,7 @@ filetype plugin indent on
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -153,20 +150,20 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-" - ST -
-"" Number settings (10進数を扱う)
+"" 10進数を扱う
 set nrformats=
 
 
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
+
 syntax on
 set ruler
 set number
 
-" visual mode color
-"autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
+" ビジュアルモード見やすい色に
+autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -178,13 +175,13 @@ set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 
+
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h12
-        " - ST -
-        set transparency=0
-        set background=light
         colorscheme solarized
+        set background=light
+        set guifont=Menlo:h12
+        set transparency=0
     endif
 else
     let g:CSApprox_loaded = 1
@@ -194,7 +191,6 @@ else
     let g:indentLine_concealcursor = 0
     let g:indentLine_char = '┆'
     let g:indentLine_faster = 1
-
 
     if $COLORTERM == 'gnome-terminal'
         set term=gnome-256color
@@ -213,7 +209,7 @@ endif
 
 
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
+set guicursor=a:blinkon0
 set scrolloff=3
 
 "" Status bar
@@ -249,17 +245,7 @@ highlight Cursor guifg=NONE guibg=#ff39d9
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
-"" no one is really happy until you have this shortcuts
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Qall! qall!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Qall qall
+
 " - ST -
 cnoreabbrev bd Bd
 
@@ -291,6 +277,7 @@ nnoremap <silent> <leader>sh :VimShellCreate<CR>
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
+
 if !exists('*s:setupWrapping')
     function s:setupWrapping()
         set wrap
@@ -302,6 +289,7 @@ endif
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
+
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
     autocmd!
@@ -362,26 +350,66 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-" CtrlP はあまり使わないので削除対象
-" CtrlP
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 1
+"" クリップボードの利用
+noremap YY "+y<CR>
+noremap <leader>p "+gp<CR>
+noremap <leader>P "+gP<CR>
+noremap XX "+x<CR>
+
+"" クリップボードの利用(検討)
+if has('macunix')
+    " pbcopy for OSX copy/paste
+    vmap <C-x> :!pbcopy<CR>
+    vmap <C-c> :w !pbcopy<CR><CR>
+endif
+
+"" バッファ操作(検討)
+noremap <leader>z :bp<CR>
+noremap <leader>q :bp<CR>
+noremap <leader>x :bn<CR>
+noremap <leader>w :bn<CR>
+noremap <leader>c :Bd<CR>
+
+"" ウィンドウサイズ変更
+noremap <C-j> <C-w>-
+noremap <C-k> <C-w>+
+noremap <C-l> <C-w>>
+noremap <C-h> <C-w><
+
+"" ビジュアルモードで'>'や'<'を使った後にビジュアルモードを維持する(検討)
+vmap < <gv
+vmap > >gv
+
+"" ビジュアルモードでブロックごと移動
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"" Open current line on GitHub
+nnoremap <Leader>o :.Gbrowse<CR>
+
+" コマンドラインでの入力をEmacsっぽく
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+
+" 上下のカーソル移動を直感的に
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" .vimrc 編集ショートカット
+command! Preferences edit $MYVIMRC
+
+"*****************************************************************************
+""
+"*****************************************************************************
 
 " The Silver Searcher
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
 endif
-
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -412,62 +440,6 @@ endif
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
-
-noremap YY "+y<CR>
-noremap <leader>p "+gp<CR>
-noremap <leader>P "+gP<CR>
-noremap XX "+x<CR>
-
-if has('macunix')
-    " pbcopy for OSX copy/paste
-    vmap <C-x> :!pbcopy<CR>
-    vmap <C-c> :w !pbcopy<CR><CR>
-endif
-
-"" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
-
-"" Close buffer
-noremap <leader>c :Bd<CR>
-
-"" Switching windows
-" - ST -
-noremap <C-j> <C-w>-
-noremap <C-k> <C-w>+
-noremap <C-l> <C-w>>
-noremap <C-h> <C-w><
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-"" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
-
-" - ST -
-" コマンドラインでの入力をEmacsっぽく
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-f> <Right>
-cnoremap <C-b> <Left>
-
-" - ST -
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-
-" - ST -
-" edit vimrc
-command! Preferences edit $MYVIMRC
-
 
 "*****************************************************************************
 "" Custom configs
@@ -519,14 +491,6 @@ let g:airline#extensions#virtualenv#enabled = 1
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-endif
 
 "*****************************************************************************
 "" Convenience variables
