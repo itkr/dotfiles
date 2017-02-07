@@ -93,7 +93,7 @@ Plug 'jelera/vim-javascript-syntax'
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'  " pythonのコード補完
 "Plug 'hdima/python-syntax'  " pythonのシンタックスグループを追加
-"Plug 'kevinw/pyflakes-vim'
+"Plug 'kevinw/pyflakes-vim'  " flask シンタックスチェック
 "Plug 'lambdalisue/vim-pyenv'  " Vimでpyenvを扱う
 
 
@@ -153,6 +153,13 @@ set shell=/bin/sh
 "" 10進数を扱う
 set nrformats=
 
+"" コマンドラインの補完表示方法
+"set wildmode=list:longest
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+
+" (検討)
+cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 "*****************************************************************************
 "" Visual Settings
@@ -251,6 +258,7 @@ set cursorline
 
 " vim-bbye
 cnoreabbrev bd Bd
+cnoreabbrev bd! Bd!
 
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
@@ -394,6 +402,10 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
+
+" インサートモードでEmacsっぽく
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 
 " 上下のカーソル移動を直感的に
 noremap j gj
