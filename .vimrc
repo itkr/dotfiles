@@ -107,13 +107,13 @@ filetype plugin indent on
 "" Basic Setup
 "*****************************************************************************"
 
-"" Session management
+"" セッション管理
 let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
+let g:session_autoload = "yes"
+let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 
-"" Map leader to ,
+"" leaderをマッピング
 let mapleader=','
 
 "" Encoding
@@ -172,10 +172,9 @@ syntax on
 set ruler
 set number
 
+" カラースキーマ上書き
 augroup change-color-scheme
-    " ビジュアルモード見やすい色に
     autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
-    " カーソルの色
     autocmd ColorScheme * highlight Cursor guifg=NONE guibg=#ff39d9
 augroup END
 
