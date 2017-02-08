@@ -32,20 +32,29 @@ if exists('make')
     let g:make = 'make'
 endif
 
-"Plug 'Raimondi/delimitMate'                  " 括弧などの補完 TODO: 検討
+" 検討中
+" Plug 'Raimondi/delimitMate'                  " 括弧などの補完                        TODO: 検討
+" Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
+Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行(make)                      TODO: 検討
+Plug 'Shougo/vimshell.vim'                   " Vimでシェルを動かす(v:version >= 703) TODO: 検討
+Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
+Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
+Plug 'tpope/vim-fugitive'                    " Git操作する                           TODO: 検討
+
+"" Snippets
+Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
+Plug 'FelikZ/ctrlp-py-matcher'               " Snippets(v:version >=704)             TODO: 検討
+Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
+
+" Basic
 Plug 'Shougo/unite.vim'                      " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'                   " ファイラ
-Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行(make)
-Plug 'Shougo/vimshell.vim'                   " Vimでシェルを動かす(v:version >= 703)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'bronson/vim-trailing-whitespace'       " 行末スペースのハイライト
-Plug 'majutsushi/tagbar'                     " -
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'scrooloose/syntastic'                  " 構文チェック
-Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス) TODO: 検討
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
-Plug 'tpope/vim-fugitive'                    " Git操作する
 Plug 'vim-airline/vim-airline'               " vimを見やすく表示
 Plug 'vim-airline/vim-airline-themes'        " vimを見やすく表示(theme)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマ変換
@@ -54,11 +63,6 @@ Plug 'vim-scripts/grep.vim'                  " -
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
 Plug 'xolox/vim-session'                     " セッション管理
-
-"" Snippets
-Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)
-Plug 'FelikZ/ctrlp-py-matcher'               " Snippets(v:version >=704)
-Plug 'honza/vim-snippets'                    " Snippets
 
 "" Color
 Plug 'altercation/vim-colors-solarized'      " colorscheme
@@ -308,6 +312,9 @@ endif
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
+
+"" vim-rooter
+let g:rooter_use_lcd = 1
 
 "*****************************************************************************
 "" Functions
