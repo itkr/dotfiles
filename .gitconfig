@@ -1,17 +1,18 @@
 [user]
-	name = itkr
-	email = itkrst@gmail.com
+    name = itkr
+    email = itkrst@gmail.com
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [color]
-	ui = auto
+    ui = auto
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
-	quotepath = false
+    excludesfile = ~/.gitignore
+    editor = vim
+    quotepath = false
+    whitespace = cr-at-eol
 [push]
-	default = current
+    default = current
 [alias]
-  s = status
-  b = branch
-  co = checkout
+    s = status
+    b = branch
+    co = checkout
