@@ -32,23 +32,23 @@ if exists('make')
     let g:make = 'make'
 endif
 
-"Plug 'Raimondi/delimitMate'                  " -
+"Plug 'Raimondi/delimitMate'                  " 括弧などの補完 TODO: 検討
 Plug 'Shougo/unite.vim'                      " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'                   " ファイラ
 Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行(make)
-Plug 'Shougo/vimshell.vim'                   " Vim でシェルを動かす(v:version >= 703)
+Plug 'Shougo/vimshell.vim'                   " Vimでシェルを動かす(v:version >= 703)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
-Plug 'bronson/vim-trailing-whitespace'       " -
+Plug 'bronson/vim-trailing-whitespace'       " 行末スペースのハイライト
 Plug 'majutsushi/tagbar'                     " -
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'scrooloose/syntastic'                  " 構文チェック
-Plug 'sheerun/vim-polyglot'                  " -
-Plug 'tpope/vim-commentary'                  " -
-Plug 'tpope/vim-fugitive'                    " Git 操作する
-Plug 'vim-airline/vim-airline'               " vim を見やすく表示
-Plug 'vim-airline/vim-airline-themes'        " vim を見やすく表示(theme)
-Plug 'vim-scripts/CSApprox'                  " -
+Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス) TODO: 検討
+Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
+Plug 'tpope/vim-fugitive'                    " Git操作する
+Plug 'vim-airline/vim-airline'               " vimを見やすく表示
+Plug 'vim-airline/vim-airline-themes'        " vimを見やすく表示(theme)
+Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマ変換
 Plug 'vim-scripts/grep.vim'                  " -
 
 "" Session
@@ -143,14 +143,14 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" (検討)
+" TODO: 検討
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
 
-" (syntax on の前に書く :h no_buffers_menu) (検討)
+" (syntax on の前に書く :h no_buffers_menu)  TODO: 検討
 let no_buffers_menu=1
 
 " カラースキーマ上書き
@@ -372,7 +372,7 @@ noremap XX "+x<CR>
 noremap <leader>p "+gp<CR>
 noremap <leader>P "+gP<CR>
 
-"" バッファ操作(検討)
+"" バッファ操作 TODO: 検討
 noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
