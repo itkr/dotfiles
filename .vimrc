@@ -32,12 +32,12 @@ if exists('make')
     let g:make = 'make'
 endif
 
-Plug 'Raimondi/delimitMate'                  " -
+"Plug 'Raimondi/delimitMate'                  " -
 Plug 'Shougo/unite.vim'                      " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'                   " ファイラ
-Plug 'Shougo/vimproc.vim', {'do': g:make}    " -
+Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行(make)
 Plug 'Shougo/vimshell.vim'                   " Vim でシェルを動かす(v:version >= 703)
-Plug 'Yggdroot/indentLine'                   " -
+Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'bronson/vim-trailing-whitespace'       " -
 Plug 'majutsushi/tagbar'                     " -
@@ -52,8 +52,8 @@ Plug 'vim-scripts/CSApprox'                  " -
 Plug 'vim-scripts/grep.vim'                  " -
 
 "" Session
-Plug 'xolox/vim-misc'                        " Vim-Session
-Plug 'xolox/vim-session'                     " Vim-Session
+Plug 'xolox/vim-misc'                        " セッション管理
+Plug 'xolox/vim-session'                     " セッション管理
 
 "" Snippets
 Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)
@@ -62,8 +62,6 @@ Plug 'honza/vim-snippets'                    " Snippets
 
 "" Color
 Plug 'altercation/vim-colors-solarized'      " colorscheme
-Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
-Plug 'tomasr/molokai'                        " colorscheme
 Plug 'w0ng/vim-hybrid'                       " colorscheme
 
 "" HTML Bundle
@@ -77,9 +75,9 @@ Plug 'jelera/vim-javascript-syntax'          " -
 
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'                  " pythonのコード補完
-"Plug 'hdima/python-syntax'                  " pythonのシンタックスグループを追加
-"Plug 'kevinw/pyflakes-vim'                  " flask シンタックスチェック
-"Plug 'lambdalisue/vim-pyenv'                " Vimでpyenvを扱う
+"Plug 'hdima/python-syntax'                   " pythonのシンタックスグループを追加
+"Plug 'kevinw/pyflakes-vim'                   " flask シンタックスチェック
+"Plug 'lambdalisue/vim-pyenv'                 " Vimでpyenvを扱う
 
 call plug#end()
 
@@ -152,8 +150,15 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 "" Visual Settings
 "*****************************************************************************
 
-" (syntax on の前に書く :h no_buffers_menu)
+" (syntax on の前に書く :h no_buffers_menu) (検討)
 let no_buffers_menu=1
+
+" カラースキーマ上書き
+augroup change-color-scheme
+    autocmd!
+    autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
+    autocmd ColorScheme * highlight Cursor guifg=NONE guibg=#ff39d9
+augroup END
 
 syntax on
 set ruler
@@ -200,7 +205,7 @@ endif
 "" Disable the blinking cursor.
 set guicursor=a:blinkon0
 
-""
+"" スクロール時のカーソル
 set scrolloff=3
 
 "" Status bar
@@ -234,7 +239,7 @@ cnoreabbrev bd! Bd!
 
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_tree_leaf_icon      = '┆'  " ⋮
+let g:vimfiler_tree_leaf_icon      = '┆'
 let g:vimfiler_tree_opened_icon    = '▿'
 let g:vimfiler_tree_closed_icon    = '▸'
 let g:vimfiler_file_icon           = '-'
@@ -262,33 +267,32 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_theme = 'tomorrow'
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_skip_empty_sections = 1
-
+let g:airline_skip_empty_sections             = 1
+let g:airline#extensions#branch#enabled       = 1
+let g:airline#extensions#syntastic#enabled    = 1
+let g:airline#extensions#tabline#enabled      = 1
+let g:airline#extensions#tagbar#enabled       = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '┆'
-let g:airline_left_sep                        = '▶'
 let g:airline_left_alt_sep                    = '»'
+let g:airline_left_sep                        = '▶'
 let g:airline_right_alt_sep                   = '«'
 let g:airline_right_sep                       = '◀'
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger                  = "<tab>"
+let g:UltiSnipsJumpForwardTrigger             = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
+let g:UltiSnipsEditSplit                      = "vertical"
 
 " syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list      = 1
+let g:syntastic_auto_loc_list                 = 1
+let g:syntastic_aggregate_errors              = 1
+let g:syntastic_error_symbol                  = '✗'
+let g:syntastic_warning_symbol                = '⚠'
+let g:syntastic_style_error_symbol            = '✗'
+let g:syntastic_style_warning_symbol          = '⚠'
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -346,38 +350,12 @@ augroup vimrc-make-cmake
     autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-" カラースキーマ上書き
-augroup change-color-scheme
-    autocmd!
-    autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
-    autocmd ColorScheme * highlight Cursor guifg=NONE guibg=#ff39d9
-augroup END
-
+""
 set autoread
 
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
-"" Git(検討)
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-
-" セッション管理(検討)
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
-"" Tabs(検討)
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -482,10 +460,10 @@ let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
 "*****************************************************************************
-"" Convenience variables
+"" Extra
 "*****************************************************************************
 
-" - ST -
-if filereadable(expand("~/.vim/colors/custom_color.vim"))
-    source ~/.vim/colors/custom_color.vim
+if filereadable(expand("~/.vim/colors/custom.vim"))
+    source ~/.vim/colors/custom.vim
 endif
+
