@@ -7,7 +7,7 @@
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = /usr/bin/vim
+	editor = vim
 	quotepath = false
 [push]
 	default = current
