@@ -51,7 +51,8 @@ Plug 'Shougo/unite.vim'                      " 統合インターフェイス
 Plug 'Shougo/vimfiler.vim'                   " ファイラ
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
-Plug 'bronson/vim-trailing-whitespace'       " 行末スペースのハイライト
+Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
+" Plug 'bronson/vim-trailing-whitespace'       " 行末スペースのハイライト
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
@@ -91,12 +92,6 @@ filetype plugin indent on
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
-
-"" セッション管理
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
 
 "" leaderをマッピング
 let mapleader=','
@@ -146,9 +141,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
-
-" TODO: 検討
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 "*****************************************************************************
 "" Visual Settings
@@ -234,7 +226,7 @@ endif
 set cursorline
 
 "*****************************************************************************
-"" Abbreviations
+"" プラグインの設定
 "*****************************************************************************
 
 " vim-bbye
@@ -316,6 +308,18 @@ endif
 "" vim-rooter
 let g:rooter_use_lcd = 1
 
+"" vim-session
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+"" whitespace
+" vim-trailing-whitespace 版
+" let g:extra_whitespace_ignored_filetypes = ['unite']
+" vim-better-whitespace 版
+" let g:better_whitespace_filetypes_blacklist = ['unite']
+
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
@@ -364,12 +368,13 @@ set autoread
 "" Mappings
 "*****************************************************************************
 
+" TODO: 検討
+" コマンドラインでカレントディレクトリ表示
+cnoremap <C-X><C-P> <C-R>=expand("%:p:h") . "/" <CR>
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
-
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -392,10 +397,15 @@ noremap <C-k> <C-w>+
 noremap <C-l> <C-w>>
 noremap <C-h> <C-w><
 
-"" ビジュアルモードでブロックごと移動
+"" ビジュアルモードでブロックごと移動 TODO: 検討
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+"" ビジュアルモードでインデント操作した後ビジュアルモードを維持 TODO: 検討
+vmap < <gv
+vmap > >gv
+
+" TODO: 検討
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
@@ -419,7 +429,7 @@ noremap gk k
 command! Preferences edit $MYVIMRC
 
 "*****************************************************************************
-"" Custom configs
+"" ファイルタイプごとの設定
 "*****************************************************************************
 
 " html
