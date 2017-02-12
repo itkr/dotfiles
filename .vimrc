@@ -401,6 +401,10 @@ noremap k gk
 noremap gj j
 noremap gk k
 
+" Comment out
+nmap <leader>/ gcc
+vmap <leader>/ gc
+
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
 
