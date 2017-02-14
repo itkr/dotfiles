@@ -35,6 +35,8 @@ endif
 " Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
 Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
+Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-bufferline'
 
 "" Snippets
 Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
@@ -51,8 +53,8 @@ Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せ�
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
-Plug 'vim-airline/vim-airline'               " vimを見やすく表示
-Plug 'vim-airline/vim-airline-themes'        " vimを見やすく表示(theme)
+" Plug 'vim-airline/vim-airline'               " vimを見やすく表示
+" Plug 'vim-airline/vim-airline-themes'        " vimを見やすく表示(theme)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマ変換
 Plug 'vim-scripts/grep.vim'                  " -
 
@@ -195,18 +197,19 @@ augroup END
 
 " シンタックス
 syntax on
-
-" 行番号
-set number
-
-"
 if !exists('g:not_finish_vimplug')
     colorscheme hybrid
 endif
 
+set showtabline=2
+
+" 行番号
+set number
+
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
+"set guioptions=egmrti
+set guioptions=gmrtTi
 
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
@@ -280,19 +283,34 @@ let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 "" terminal emulation
 nnoremap <silent> <leader>sh :VimShellCreate<CR>
 
-" vim-airline
-let g:airline_theme = 'tomorrow'
-let g:airline_skip_empty_sections             = 1
-let g:airline#extensions#branch#enabled       = 1
-let g:airline#extensions#syntastic#enabled    = 1
-let g:airline#extensions#tabline#enabled      = 1
-let g:airline#extensions#tagbar#enabled       = 1
-let g:airline#extensions#tabline#left_sep     = ' '
-let g:airline#extensions#tabline#left_alt_sep = '┆'
-let g:airline_left_alt_sep                    = '»'
-let g:airline_left_sep                        = '▶'
-let g:airline_right_alt_sep                   = '«'
-let g:airline_right_sep                       = '◀'
+" bufferline
+let g:bufferline_echo = 0
+
+" lightline
+let g:lightline = {
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ], ['bufferline'] ],
+            \ },
+            \ 'colorscheme': 'wombat'
+            \ }
+let g:lightline.tabline = {
+            \ 'left': [ [ 'readonly', 'relativepath', 'modified' ] ],
+            \ 'right': [ [ 'tabs' ] ] }
+let g:lightline.component_function = {
+            \   'bufferline': 'MyBufferline'
+            \ }
+let g:lightline.component_expand = {
+            \ 'tabs': 'lightline#tabs' }
+let g:lightline.component_type = {
+            \ 'tabs': 'tabsel' }
+
+function! MyBufferline()
+    call bufferline#refresh_status()
+    let b = g:bufferline_status_info.before
+    let c = g:bufferline_status_info.current
+    let a = g:bufferline_status_info.after
+    return b . c . a
+endfunction
 
 "" snippets
 let g:UltiSnipsExpandTrigger                  = "<tab>"
