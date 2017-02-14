@@ -1,8 +1,8 @@
 " TODO: GUI 関連を分離する
 
-" *****************************************************************************
+" =============================================================================
 " Vim-PLug core
-" *****************************************************************************
+" =============================================================================
 
 if has('vim_starting')
     set nocompatible               " Be iMproved
@@ -22,9 +22,9 @@ endif
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
-"*****************************************************************************
+"=============================================================================
 "" Plug install packages
-"*****************************************************************************
+"=============================================================================
 
 let g:make = 'gmake'
 if exists('make')
@@ -33,8 +33,6 @@ endif
 
 " 検討中
 " Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
-Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行(make)                      TODO: 検討
-Plug 'Shougo/vimshell.vim'                   " Vimでシェルを動かす(v:version >= 703) TODO: 検討
 Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
 
@@ -44,11 +42,13 @@ Plug 'honza/vim-snippets'                    " Snippets                         
 
 " Basic
 Plug 'Shougo/unite.vim'                      " 統合インターフェイス
-Plug 'Shougo/vimfiler.vim'                   " ファイラ
+Plug 'Shougo/vimfiler.vim'                   " ファイラ(Uniteに依存)
+Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
+Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
-Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
+Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-airline/vim-airline'               " vimを見やすく表示
@@ -84,9 +84,9 @@ call plug#end()
 " Required:
 filetype plugin indent on
 
-"*****************************************************************************
+"=============================================================================
 "" Autocmd Rules
-"*****************************************************************************
+"=============================================================================
 
 " TODO: 検討
 
@@ -115,43 +115,52 @@ augroup vimrc-make-cmake
     autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-"*****************************************************************************
-"" Basic
-"*****************************************************************************"
+" =============================================================================
+" Basic
+" =============================================================================
 
 " leaderをマッピング
 let mapleader=','
 
-"" Encoding
+" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
+
+" Scrolling
 set ttyfast
 
-"" Fix backspace indent
+" Fix backspace indent
 set backspace=indent,eol,start
 
-"" Tabs. May be overriten by autocmd rules
+" Tabs (May be overriten by autocmd rules)
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
 
-"" Searching
+" Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
 
-" 自動生成ファイルを作らない
+" Automatically generated file
 set nobackup
 set noswapfile
 
-""
+" File formats
 set fileformats=unix,dos,mac
+
+" Commands
 set showcmd
+
+" Shell
 set shell=/bin/sh
 
 " Decimal number
@@ -165,19 +174,14 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 set autoread
 set hidden
 
-" Search
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-endif
-
 " Clipboard
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
 
-"*****************************************************************************
+"=============================================================================
 "" Visual
-"*****************************************************************************
+"=============================================================================
 
 "" (syntax on の前に書く :h no_buffers_menu)  TODO: 検討
 let no_buffers_menu=1
@@ -244,9 +248,9 @@ set scrolloff=3
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-"*****************************************************************************
+"=============================================================================
 "" Plugin
-"*****************************************************************************
+"=============================================================================
 
 " vim-bbye
 cnoreabbrev bd Bd
@@ -332,9 +336,9 @@ if !has("gui_running")
     let g:indentLine_faster = 1
 endif
 
-"*****************************************************************************
+"=============================================================================
 "" Functions
-"*****************************************************************************
+"=============================================================================
 
 if !exists('*s:setupWrapping')
     function s:setupWrapping()
@@ -344,9 +348,9 @@ if !exists('*s:setupWrapping')
     endfunction
 endif
 
-"*****************************************************************************
+"=============================================================================
 "" Mappings
-"*****************************************************************************
+"=============================================================================
 
 " TODO: 検討
 "" コマンドラインでカレントディレクトリ表示
@@ -405,12 +409,18 @@ noremap gk k
 nmap <leader>/ gcc
 vmap <leader>/ gc
 
+" Start visual mode
+nnoremap <S-Down> vj
+nnoremap <S-Up> vk
+vnoremap <S-Down> j
+vnoremap <S-Up> k
+
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
 
-"*****************************************************************************
+"=============================================================================
 "" ファイルタイプごとの設定
-"*****************************************************************************
+"=============================================================================
 
 "" html
 "" for html files, 2 spaces
@@ -457,9 +467,9 @@ let g:polyglot_disabled = ['python']
 " python syntax highlight
 let python_highlight_all = 1
 
-"*****************************************************************************
+"=============================================================================
 "" Extra
-"*****************************************************************************
+"=============================================================================
 
 if filereadable(expand("~/.vim/colors/custom.vim"))
     source ~/.vim/colors/custom.vim
