@@ -1,5 +1,3 @@
-" TODO: GUI 関連を分離する
-
 " =============================================================================
 " Vim-PLug core
 " =============================================================================
@@ -60,7 +58,7 @@ Plug 'vim-scripts/grep.vim'                  " -
 Plug 'xolox/vim-misc'                        " セッション管理
 Plug 'xolox/vim-session'                     " セッション管理
 
-"" Color
+" Color
 Plug 'altercation/vim-colors-solarized'      " colorscheme
 Plug 'w0ng/vim-hybrid'                       " colorscheme
 
@@ -179,33 +177,30 @@ if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 endif
 
-"=============================================================================
-"" Visual
-"=============================================================================
+" =============================================================================
+" Visual
+" =============================================================================
 
-"" (syntax on の前に書く :h no_buffers_menu)  TODO: 検討
-let no_buffers_menu=1
-
-" カラースキーマ上書き
+" Override color scheme
 augroup change-color-scheme
     autocmd!
     autocmd ColorScheme * highlight Visual ctermbg=12 ctermfg=15
     autocmd ColorScheme * highlight Cursor guifg=NONE guibg=#ff39d9
 augroup END
 
-" シンタックス
+" Syntax
 syntax on
 if !exists('g:not_finish_vimplug')
     colorscheme hybrid
 endif
 
-
-" 行番号
+" Line number
 set number
 
+"
 set t_Co=256
 
-
+"
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
         colorscheme solarized
@@ -214,7 +209,6 @@ if has("gui_running")
         set transparency=0
     endif
 else
-    " TODO: 検討
     if $COLORTERM == 'gnome-terminal'
         set term=gnome-256color
     else
@@ -224,13 +218,12 @@ else
     endif
 endif
 
-""
+"
 if &term =~ '256color'
     set t_ut=
 endif
 
 " GUI
-"set guioptions=egmrTi
 set guioptions=gmrTi
 
 " Mouse
@@ -242,20 +235,23 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " Tabline
 set showtabline=2
-"set guitablabel=\[%N\]\ %t\ %M  " guioptionsにeが必要  TODO: 起動時になぜか効かない
-
-"" Use modeline overrides TODO: 検討
-set modeline
-set modelines=10
 
 " Cursor
 set cursorline
-set guicursor=a:blinkon0
 set scrolloff=1
 
+" Cursor (GUI)
+set guicursor=a:blinkon0
+
 " Cursor (CUI)
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+if !has('gui_running')
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Disable visualbell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 
 "=============================================================================
 "" Plugin
@@ -284,13 +280,16 @@ let Grep_Skip_Dirs = '.git node_modules'
 
 "" vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-"let g:vimshell_prompt =  '$ '
+let g:vimshell_prompt =  '$ '
 
 "" terminal emulation
 nnoremap <silent> <leader>sh :VimShellCreate<CR>
 
 " bufferline
 let g:bufferline_echo = 0
+let g:bufferline_active_buffer_left = '<'
+let g:bufferline_active_buffer_right = '>'
+let g:bufferline_modified = '*'
 
 " lightline
 let g:lightline = {
@@ -339,10 +338,6 @@ let g:syntastic_style_warning_symbol          = '⚠'
 "" Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
-
-"" Disable visualbell
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
 
 "" vim-rooter
 let g:rooter_use_lcd = 1
@@ -446,7 +441,7 @@ vnoremap <S-Up> k
 command! Preferences edit $MYVIMRC
 
 "=============================================================================
-"" ファイルタイプごとの設定
+"" File type
 "=============================================================================
 
 "" html
