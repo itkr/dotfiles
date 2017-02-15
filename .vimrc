@@ -32,7 +32,7 @@ if exists('make')
 endif
 
 " 検討中
-" Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
+Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
 Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
 
@@ -295,21 +295,21 @@ let g:bufferline_echo = 0
 " lightline
 let g:lightline = {
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], ['bufferline'] ]
+            \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ]
             \ },
             \ 'colorscheme': 'wombat'
             \ }
 let g:lightline.component = {
-            \ 'currentdir': '@ %.35(%{fnamemodify(getcwd(), ":~")}%)',
+            \ 'currentdir': '@ %(%{fnamemodify(getcwd(), ":~")}%)',
             \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.tabline = {
-            \ 'left': [ [ 'readonly', 'relativepath', 'modified' ] ],
-            \ 'right': [ [ 'tabs' ], ['currentdir'] ] }
+            \ 'left': [ [ 'bufferline' ] ],
+            \ 'right': [ [ 'tabs' ] ] }
 let g:lightline.component_function = {
             \   'bufferline': 'MyBufferline'
             \ }
 let g:lightline.component_expand = {
-            \ 'tabs': 'lightline#tabs' }
+            \ 'tabs': 'lightline#tabs'}
 let g:lightline.component_type = {
             \ 'tabs': 'tabsel' }
 
