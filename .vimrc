@@ -35,8 +35,6 @@ endif
 " Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
 Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
-Plug 'itchyny/lightline.vim'
-Plug 'bling/vim-bufferline'
 
 "" Snippets
 Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
@@ -49,12 +47,12 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
 Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
+Plug 'bling/vim-bufferline'                  " buffer list 表示
+Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
-" Plug 'vim-airline/vim-airline'               " vimを見やすく表示
-" Plug 'vim-airline/vim-airline-themes'        " vimを見やすく表示(theme)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマ変換
 Plug 'vim-scripts/grep.vim'                  " -
 
@@ -201,15 +199,12 @@ if !exists('g:not_finish_vimplug')
     colorscheme hybrid
 endif
 
-set showtabline=2
 
 " 行番号
 set number
 
-set mousemodel=popup
 set t_Co=256
-"set guioptions=egmrti
-set guioptions=gmrtTi
+
 
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
@@ -234,9 +229,20 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+" GUI
+"set guioptions=egmrTi
+set guioptions=gmrTi
+
+" Mouse
+set mousemodel=popup
+
 " Status line
 set laststatus=2
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+" Tabline
+set showtabline=2
+"set guitablabel=\[%N\]\ %t\ %M  " guioptionsにeが必要  TODO: 起動時になぜか効かない
 
 "" Use modeline overrides TODO: 検討
 set modeline
@@ -245,7 +251,7 @@ set modelines=10
 " Cursor
 set cursorline
 set guicursor=a:blinkon0
-set scrolloff=3
+set scrolloff=1
 
 " Cursor (CUI)
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -289,13 +295,16 @@ let g:bufferline_echo = 0
 " lightline
 let g:lightline = {
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], ['bufferline'] ],
+            \   'left': [ [ 'mode', 'paste' ], ['bufferline'] ]
             \ },
             \ 'colorscheme': 'wombat'
             \ }
+let g:lightline.component = {
+            \ 'currentdir': '@ %.35(%{fnamemodify(getcwd(), ":~")}%)',
+            \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.tabline = {
             \ 'left': [ [ 'readonly', 'relativepath', 'modified' ] ],
-            \ 'right': [ [ 'tabs' ] ] }
+            \ 'right': [ [ 'tabs' ], ['currentdir'] ] }
 let g:lightline.component_function = {
             \   'bufferline': 'MyBufferline'
             \ }
@@ -492,4 +501,3 @@ let python_highlight_all = 1
 if filereadable(expand("~/.vim/colors/custom.vim"))
     source ~/.vim/colors/custom.vim
 endif
-
