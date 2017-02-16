@@ -30,8 +30,6 @@ if exists('make')
 endif
 
 " 検討中
-Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
-Plug 'majutsushi/tagbar'                     " ctagsの扱い                           TODO: 検討
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
 
 "" Snippets
@@ -45,8 +43,10 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
 Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
+Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
+Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
@@ -296,14 +296,14 @@ let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ]
             \ },
-            \ 'colorscheme': 'wombat'
+            \ 'colorscheme': 'solarized'
             \ }
-let g:lightline.component = {
-            \ 'currentdir': '@ %(%{fnamemodify(getcwd(), ":~")}%)',
-            \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.tabline = {
             \ 'left': [ [ 'bufferline' ] ],
             \ 'right': [ [ 'tabs' ] ] }
+let g:lightline.component = {
+            \ 'currentdir': '%(%{fnamemodify(getcwd(), ":~")}%)',
+            \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.component_function = {
             \   'bufferline': 'MyBufferline'
             \ }
@@ -350,6 +350,7 @@ let g:session_command_aliases = 1
 
 ""
 if !has("gui_running")
+    " CSApprox
     let g:CSApprox_loaded = 1
     " IndentLine
     let g:indentLine_enabled = 1
