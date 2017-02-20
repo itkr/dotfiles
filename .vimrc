@@ -40,7 +40,7 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
 Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
-Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ            TODO: 検討
+Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
@@ -49,7 +49,7 @@ Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライ
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
-Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマ変換
+Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
 
 "" Session
@@ -196,7 +196,7 @@ if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
         colorscheme solarized
         set background=light
-        " set guifont=Menlo:h12
+        set guifont=Menlo:h12
         set transparency=0
     endif
 else
@@ -334,11 +334,11 @@ let g:syntastic_warning_symbol                = '⚠'
 let g:syntastic_style_error_symbol            = '✗'
 let g:syntastic_style_warning_symbol          = '⚠'
 
-"" Tagbar
+" Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-"" vim-rooter
+" vim-rooter
 let g:rooter_use_lcd = 1
 
 " vim-session
@@ -392,9 +392,7 @@ noremap <leader>P "+gP<CR>
 
 " Buffer operation
 noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
 noremap <leader>c :Bd<CR>
 
 " Resizing windows
@@ -477,7 +475,7 @@ let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
 
-"" syntastic
+" syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
 
 "" Default highlight is better than polyglot
