@@ -408,6 +408,7 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+" TODO: 候補一覧と競合するので検討
 cnoremap <C-d> <Del>
 cnoremap <C-k> <C-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos() - 2]<CR>
 
@@ -417,6 +418,7 @@ inoremap <C-b> <Left>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Del>
+" TODO: ダイグラフと競合するので検討
 inoremap <C-k> <C-o>D
 
 " Moving cursor
