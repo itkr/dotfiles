@@ -115,8 +115,12 @@ augroup END
 " Basic
 " =============================================================================
 
+" %で対になるタグなどに飛ぶ
+runtime macros/matchit.vim
+
 " leaderをマッピング
 let mapleader=','
+" noremap \ ,
 
 " Encoding
 set encoding=utf-8
@@ -375,6 +379,8 @@ endif
 "=============================================================================
 
 " TODO: 検討
+cnoremap <expr> %% getcmdtype() ==':' ? expand('%:h:p').'/' : '%%'
+
 "" コマンドラインでカレントディレクトリ表示
 cnoremap <C-X><C-P> <C-R>=expand("%:p:h") . "/" <CR>
 "" Set working directory
