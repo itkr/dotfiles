@@ -43,6 +43,7 @@ Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
+Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
@@ -121,7 +122,7 @@ runtime macros/matchit.vim
 
 " leaderをマッピング
 let mapleader=','
-" noremap \ ,
+noremap \ ,
 
 " Encoding
 set encoding=utf-8
@@ -369,6 +370,9 @@ if !has("gui_running")
     let g:indentLine_faster = 1
 endif
 
+" previm
+let g:previm_open_cmd = 'open -a "Google Chrome"'
+
 "=============================================================================
 "" Functions
 "=============================================================================
@@ -386,7 +390,7 @@ endif
 " =============================================================================
 
 " コマンドラインでカレントディレクトリ表示
-cnoremap <expr> %% getcmdtype() ==':' ? expand('%:h:p').'/' : '%%'
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h:p') . '/' : '%%'
 
 " Using the clipboard
 noremap YY "+y<CR>
