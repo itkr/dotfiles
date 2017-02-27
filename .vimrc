@@ -43,11 +43,12 @@ Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
+Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
-Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)    TODO: 検討
+Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
@@ -294,7 +295,8 @@ let g:vimshell_prompt =  '$ '
 nnoremap <silent> <leader>sh :VimShellCreate<CR>
 
 " bufferline
-let g:bufferline_echo = 0
+" let g:bufferline_echo = 0
+let g:bufferline_echo = 1
 let g:bufferline_active_buffer_left = '❰'
 let g:bufferline_active_buffer_right = '❱'
 let g:bufferline_modified = '*'
@@ -379,21 +381,12 @@ if !exists('*s:setupWrapping')
     endfunction
 endif
 
-"=============================================================================
-"" Mappings
-"=============================================================================
+" =============================================================================
+" Mappings
+" =============================================================================
 
-" TODO: 検討
+" コマンドラインでカレントディレクトリ表示
 cnoremap <expr> %% getcmdtype() ==':' ? expand('%:h:p').'/' : '%%'
-
-"" コマンドラインでカレントディレクトリ表示
-cnoremap <C-X><C-P> <C-R>=expand("%:p:h") . "/" <CR>
-"" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
-"" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-"" Opens a tab edit command with the path of the currently edited file filled
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Using the clipboard
 noremap YY "+y<CR>
