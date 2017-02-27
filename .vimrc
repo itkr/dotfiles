@@ -170,6 +170,11 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 set autoread
 set hidden
 
+" Titie
+set title
+set titlestring=%F
+" set guitablabel=%F
+
 " Clipboard
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
@@ -304,7 +309,7 @@ let g:lightline.component = {
             \ 'currentdir': '%(%{fnamemodify(getcwd(), ":~")}%)',
             \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.component_function = {
-            \   'bufferline': 'MyBufferline'
+            \ 'bufferline': 'MyBufferline'
             \ }
 let g:lightline.component_expand = {
             \ 'tabs': 'lightline#tabs'}
