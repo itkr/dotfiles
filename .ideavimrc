@@ -1,0 +1,26 @@
+" =============================================================================
+" Basic
+" =============================================================================
+
+" Leader
+let mapleader=','
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" =============================================================================
+" Mappings
+" =============================================================================
+
+nnoremap <leader>x gt
+nnoremap <leader>z gT
+nnoremap <leader>c :close<CR>
+
+" Using the clipboard
+noremap YY "+y<CR>
+noremap XX "+x<CR>
+noremap <leader>p "+gp<CR>
+noremap <leader>P "+gP<CR>
