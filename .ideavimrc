@@ -15,8 +15,8 @@ set smartcase
 " Mappings
 " =============================================================================
 
-nnoremap <leader>x gt
-nnoremap <leader>z gT
+nnoremap <leader>x :next<CR>
+nnoremap <leader>z :previous<CR>
 nnoremap <leader>c :close<CR>
 
 " Using the clipboard
@@ -24,3 +24,21 @@ noremap YY "+y<CR>
 noremap XX "+x<CR>
 noremap <leader>p "+gp<CR>
 noremap <leader>P "+gP<CR>
+
+" Command line operation like Emacs
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-k> <C-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos() - 2]<CR>
+
+" Insert operation like Emacs
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Del>
+inoremap <C-k> <C-o>D
