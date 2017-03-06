@@ -1,0 +1,24 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="PyCharm.InitialConfiguration" value="true" />
+    <property name="PyCharm.InitialConfiguration.V2" value="true" />
+    <property name="PyCharm.InitialConfiguration.V3" value="true" />
+    <property name="PyCharm.InitialConfiguration.V4" value="true" />
+    <property name="PyCharm.InitialConfiguration.V5" value="true" />
+    <property name="PyCharm.InitialConfiguration.V6" value="true" />
+    <property name="fileTypeChangedCounter" value="1" />
+    <property name="PyCharm.initialConfigurationShown" value="true" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+    <property name="lastTip" value="25" />
+    <property name="PLUGIN_FILTER" value="go&#10;vim" />
+    <property name="ideavim.statistics.timestamp" value="1488778281223" />
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="ShowDocumentationInToolWindow" value="false" />
+    <property name="settings.code.style.selected.tab.Python" value="Blank Lines" />
+    <property name="KEYMAP" value="activate&#10;activ&#10;&quot;activate&quot;&#10;editor&#10;focus" />
+    <property name="selected.color.option.type" value="PY.PARAMETER" />
+    <property name="ColorChooser.RecentColors" value="0-0-102-255,,,178-165-59-255,,,102-0-0-255,,,51-51-204-255,,,204-0-0-255,,,0-153-0-255,,,0-204-0-255,,,51-153-51-255,,,0-0-153-255,,,153-153-0-255,,,153-0-0-255,,,153-51-51-255,,,0-0-0-255,,,102-0-102-255" />
+    <property name="FileTemplates.SelectedTemplate" value="HTML File" />
+    <property name="OpenOrAttachDialog.OpenMode" value="new" />
+  </component>
+</application>
