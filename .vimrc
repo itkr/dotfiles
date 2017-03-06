@@ -295,9 +295,6 @@ let Grep_Skip_Dirs = '.git node_modules'
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 
-"" terminal emulation
-nnoremap <silent> <leader>sh :VimShellCreate<CR>
-
 " bufferline
 " let g:bufferline_echo = 0
 let g:bufferline_echo = 1
