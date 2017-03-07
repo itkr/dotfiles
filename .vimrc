@@ -77,6 +77,9 @@ Plug 'davidhalter/jedi-vim'                  " pythonのコード補完
 " Plug 'kevinw/pyflakes-vim'                   " flask シンタックスチェック
 " Plug 'lambdalisue/vim-pyenv'                 " Vimでpyenvを扱う
 
+"" Go
+Plug 'fatih/vim-go'                          " -
+
 call plug#end()
 
 " Required:
