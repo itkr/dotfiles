@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Memo Life For You</title>
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body>
+    <h1>Memo Life For You</h1>
+    <ul>
+      {{ range . }}
+      <li>
+        <dl>
+          <dt>
+            <a href="/{{ .Name }}">{{ .Name }}</a>
+          </dt>
+          <dd>{{ .Body }}</dd>
+        </dl>
+      </li>
+      {{ end }}
+    </ul>
+  </body>
+</html>

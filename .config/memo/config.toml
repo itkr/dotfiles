@@ -1,0 +1,9 @@
+memodir = "${HOME}/.config/memo/_posts"
+editor = "vim"
+column = 40
+selectcmd = "peco"
+grepcmd = "ag ${PATTERN} ${FILES}"
+assetsdir = "."
+pluginsdir = "${HOME}/.config/memo/plugins"
+templatedirfile = "${HOME}/.config/memo/templates/dir.html"
+templatebodyfile = "${HOME}/.config/memo/templates/body.html"
