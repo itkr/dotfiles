@@ -448,9 +448,12 @@ nnoremap <S-Up> vk
 vnoremap <S-Down> j
 vnoremap <S-Up> k
 
-
+"
 cnoreabbrev Q q
 cnoreabbrev W w
+
+"
+nnoremap == gg=G<C-o><C-o>
 
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
