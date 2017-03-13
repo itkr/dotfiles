@@ -182,7 +182,7 @@ set hidden
 " Titie
 set title
 set titlestring=%F
-" set guitablabel=%F
+set guitablabel=%F
 
 " Clipboard
 if has('unnamedplus')
@@ -241,7 +241,8 @@ syntax on
 set number
 
 " GUI
-set guioptions=gmrTi
+" set guioptions=gmrTi
+set guioptions=egmrTi
 
 " Mouse
 set mousemodel=popup
