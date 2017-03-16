@@ -61,6 +61,7 @@ Plug 'xolox/vim-session'                     " セッション管理
 " Color
 Plug 'altercation/vim-colors-solarized'      " colorscheme
 Plug 'w0ng/vim-hybrid'                       " colorscheme
+Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
 
 "" HTML Bundle
 Plug 'gorodinskiy/vim-coloresque'            " -
@@ -211,7 +212,8 @@ endif
 
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
-        colorscheme solarized
+        " colorscheme solarized
+        colorscheme Tomorrow
         set background=light
         set guifont=Menlo:h12
         set transparency=0
@@ -311,7 +313,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ]
             \ },
-            \ 'colorscheme': 'solarized'
+            \ 'colorscheme': 'wombat'
             \ }
 let g:lightline.tabline = {
             \ 'left': [ [ 'bufferline' ] ],
