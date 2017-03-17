@@ -440,6 +440,10 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+noremap <Down> g<Down>
+noremap <Up> g<Up>
+noremap g<Down> <Down>
+noremap g<Up> <Up>
 
 " Comment out
 nmap <leader>/ gcc
