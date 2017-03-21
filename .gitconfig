@@ -16,3 +16,6 @@
     s = status
     b = branch
     co = checkout
+[ghq]
+	root = ~/.ghq     ; default
+	root = ~/.go/src  ; GOPATH
