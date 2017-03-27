@@ -53,7 +53,6 @@ Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げや�
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-" Plug 'glidenote/memolist.vim'                " メモ
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -209,12 +208,11 @@ augroup END
 set t_Co=256
 
 if !exists('g:not_finish_vimplug')
-    colorscheme hybrid
+    colorscheme Tomorrow-Night
 endif
 
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
-        " colorscheme solarized
         colorscheme Tomorrow
         set background=light
         set guifont=Menlo:h12
@@ -380,9 +378,6 @@ endif
 
 " previm
 let g:previm_open_cmd = 'open -a "Google Chrome"'
-
-" memolistの保管先
-" let g:memolist_path = "~/.config/memolist"
 
 "=============================================================================
 "" Functions
