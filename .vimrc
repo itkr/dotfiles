@@ -53,6 +53,7 @@ Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げや�
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
+" Plug 'glidenote/memolist.vim'                " メモ
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -157,6 +158,7 @@ if executable('ag')
 endif
 
 " Automatically generated file
+set backupskip=/tmp/*,/private/tmp/*  " `crontab -e`が`set nobackup`の指定だけではうまく行かなかった
 set nobackup
 set noswapfile
 
@@ -378,6 +380,9 @@ endif
 
 " previm
 let g:previm_open_cmd = 'open -a "Google Chrome"'
+
+" memolistの保管先
+" let g:memolist_path = "~/.config/memolist"
 
 "=============================================================================
 "" Functions
