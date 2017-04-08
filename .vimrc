@@ -455,6 +455,9 @@ nnoremap <S-Up> vk
 vnoremap <S-Down> j
 vnoremap <S-Up> k
 
+" 再描画時に検索ハイライトを消す
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
 "
 cnoreabbrev Q q
 cnoreabbrev W w
