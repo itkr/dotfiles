@@ -405,6 +405,8 @@ noremap <leader>p "+gp<CR>
 noremap <leader>P "+gP<CR>
 
 " Buffer operation
+noremap <leader>q :bp<CR>
+noremap <leader>w :bn<CR>
 noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
 noremap <leader>c :Bd<CR>
