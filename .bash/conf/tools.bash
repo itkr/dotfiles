@@ -5,9 +5,9 @@ hisdo() {
 }
 
 hiscopy() {
-    echo `history | fzf --tac | awk '{$1="";print $0;}'` | pbcopy
+    history | fzf --tac | awk '{$1="";printf "%s", $0;}' | pbcopy
 }
 
-gitco() {
-    git checkout `git branch | peco | awk '{print $NF}'`
+gitb() {
+    git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
 }
