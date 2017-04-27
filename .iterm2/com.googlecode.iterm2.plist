@@ -1169,13 +1169,13 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>725 292 445 77 0 0 1280 777 </string>
+	<string>728 274 445 77 0 0 1280 777 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 305 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>252 193 918 495 0 0 1280 777 </string>
+	<string>292 140 918 498 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 223 970 554 0 0 1280 777 </string>
+	<string>38 886 1439 894 -319 800 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-349 1033 1257 775 -926 800 1920 1057 </string>
 	<key>New Bookmarks</key>
@@ -1915,7 +1915,7 @@
 			<key>Terminal Type</key>
 			<string>xterm</string>
 			<key>Transparency</key>
-			<real>0.044621393084526062</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -1927,9 +1927,11 @@
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Cursor Guide</key>
-			<true/>
+			<false/>
 			<key>Use Italic Font</key>
 			<false/>
+			<key>Use Non-ASCII Font</key>
+			<true/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
@@ -2759,6 +2761,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>~/.iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2778,7 +2782,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-01T02:38:20Z</date>
+	<date>2017-02-27T02:05:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2826,7 +2830,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.0.14</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
