@@ -1,4 +1,5 @@
-memodir = "${HOME}/.config/memo/_posts"
+# memodir = "${HOME}/Dropbox/Memo/_posts"
+memodir = "${HOME}/Dropbox (個人)/Memo/_posts"
 editor = "vim"
 column = 50
 selectcmd = "peco"
