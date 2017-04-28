@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.db
+.bashrc.local
 .project
 .pydevproject
 .python-version
