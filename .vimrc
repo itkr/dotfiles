@@ -217,6 +217,9 @@ if has("gui_running")
         set background=light
         set guifont=Menlo:h12
         set transparency=0
+    else
+        " TODO: Ubuntuという条件判断
+        set guifont=Ubuntu\ Mono\ Regular\ 11
     endif
 else
     if $COLORTERM == 'gnome-terminal'
