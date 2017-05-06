@@ -380,7 +380,11 @@ if !has("gui_running")
 endif
 
 " previm
-let g:previm_open_cmd = 'open -a "Google Chrome"'
+if has('unix')
+    let g:previm_open_cmd = 'chromium-browser'
+else
+    let g:previm_open_cmd = 'open -a "Google Chrome"'
+endif
 
 "=============================================================================
 "" Functions
