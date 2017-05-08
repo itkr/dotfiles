@@ -534,3 +534,7 @@ let python_highlight_all = 1
 if filereadable(expand("~/.vim/colors/custom.vim"))
     source ~/.vim/colors/custom.vim
 endif
+
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
