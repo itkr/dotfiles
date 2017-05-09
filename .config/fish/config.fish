@@ -5,9 +5,18 @@
 #     echo -n ' > '
 # end
 
+# pyenv
+
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
+# prompt
+
+set -g fish_prompt_pwd_dir_length 0
+
 function fish_prompt
-    set_color 69C
-    echo -n (pwd)
-    set_color 36F
+    set_color 14968C
+    echo -n (prompt_pwd)
+    set_color 1E78C8
     echo -n ' $ '
 end
