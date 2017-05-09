@@ -1,10 +1,12 @@
+*.db
 *.pyc
 *.pyo
-*.db
+.DS_Store
+.bashrc.local
+.coverage
+.idea
 .project
 .pydevproject
 .python-version
-.DS_Store
-.coverage
-local_settings.py
 /static
+local_settings.py

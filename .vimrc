@@ -217,6 +217,9 @@ if has("gui_running")
         set background=light
         set guifont=Menlo:h12
         set transparency=0
+    else
+        " TODO: Ubuntuという条件判断
+        set guifont=Ubuntu\ Mono\ Regular\ 11
     endif
 else
     if $COLORTERM == 'gnome-terminal'
@@ -377,7 +380,11 @@ if !has("gui_running")
 endif
 
 " previm
-let g:previm_open_cmd = 'open -a "Google Chrome"'
+if has('unix')
+    let g:previm_open_cmd = 'chromium-browser'
+else
+    let g:previm_open_cmd = 'open -a "Google Chrome"'
+endif
 
 "=============================================================================
 "" Functions
@@ -526,4 +533,8 @@ let python_highlight_all = 1
 
 if filereadable(expand("~/.vim/colors/custom.vim"))
     source ~/.vim/colors/custom.vim
+endif
+
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
 endif
