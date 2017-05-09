@@ -9,6 +9,7 @@
 
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
+set -U fish_user_paths ~/.pyenv/bin $fish_user_paths
 
 # prompt
 
