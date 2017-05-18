@@ -1,4 +1,6 @@
-# #### Alias ####
+# ########################################
+# Alias
+# ########################################
 
 alias git='git stash list; git'
 alias fd='find ./ -type f -print | xargs grep'
@@ -11,7 +13,9 @@ if (! which pbcopy > /dev/null); then
     fi
 fi
 
-# #### History ####
+# ########################################
+# History
+# ########################################
 
 export HISTSIZE=10000
 export HISTFILESIZE=$HISTSIZE
@@ -24,7 +28,9 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
-# #### Prompt ####
+# ########################################
+# Prompt
+# ########################################
 
 export PS1='\[\033[01;36m\]\w\[\033[00m\] \[\033[01;34m\]\$ \[\033[00m\]'
 
@@ -34,7 +40,9 @@ export PS1='\[\033[01;36m\]\w\[\033[00m\] \[\033[01;34m\]\$ \[\033[00m\]'
 #}
 #PS1='\[\033[01;34m\]$(formattedGitBranch)\[\033[00m\]\w\$ '
 
-# #### Tool ####
+# ########################################
+# Tool
+# ########################################
 
 hiscopy() {
     history | awk '{$1="";print $0;}' | sort | uniq | fzf --tac | awk '{printf "%s", $0;}' | pbcopy
@@ -43,4 +51,11 @@ hiscopy() {
 gitb() {
     git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
 }
+
+# ########################################
+# Go
+# ########################################
+
+export GOPATH=${HOME}/.go
+export PATH=${PATH}:${GOPATH}/bin
 
