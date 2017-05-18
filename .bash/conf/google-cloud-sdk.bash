@@ -1,7 +1,13 @@
-# The next line updates PATH for the Google Cloud SDK.
-# source $HOME/google-cloud-sdk/path.bash.inc
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+CLOUD_SDK_PATH=$HOME/google-cloud-sdk
 
-# The next line enables bash completion for gcloud.
-# source $HOME/google-cloud-sdk/completion.bash.inc
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+# `homebrew cask`でインストールしたとき
+if [ -x /usr/local/Caskroom/google-cloud-sdk ]; then
+    CLOUD_SDK_PATH="/usr/local/Caskroom/google-cloud-sdk"
+fi
+
+if [ -x $CLOUD_SDK_PATH ]; then
+    # The next line updates PATH for the Google Cloud SDK.
+    source $CLOUD_SDK_PATH/path.bash.inc
+    # The next line enables bash completion for gcloud.
+    source $CLOUD_SDK_PATH/completion.bash.inc
+fi
