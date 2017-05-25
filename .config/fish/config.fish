@@ -21,3 +21,10 @@ function fish_prompt
     set_color 1E78C8
     echo -n ' $ '
 end
+
+# ########################################
+# go
+# ########################################
+
+set -x GOPATH ~/.go
+set -x fish_user_paths $GOPATH/bin $fish_user_paths
