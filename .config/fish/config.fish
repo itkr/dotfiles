@@ -1,13 +1,13 @@
 # ########################################
-# pyenv
+# Alias
 # ########################################
 
-set -U fish_user_paths ~/.pyenv/bin $fish_user_paths
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+# ########################################
+# History
+# ########################################
 
 # ########################################
-# prompt
+# Prompt
 # ########################################
 
 set -g fish_prompt_pwd_dir_length 0
@@ -23,8 +23,20 @@ function fish_prompt
 end
 
 # ########################################
-# go
+# Tool
+# ########################################
+
+# ########################################
+# Go
 # ########################################
 
 set -x GOPATH ~/.go
 set -x fish_user_paths $GOPATH/bin $fish_user_paths
+
+# ########################################
+# Pyenv
+# ########################################
+
+set -U fish_user_paths ~/.pyenv/bin $fish_user_paths
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
