@@ -388,6 +388,7 @@ endif
 
 " previm
 if has('mac')
+    " Safari or Google Chrome
     let g:previm_open_cmd = 'open -a "Google Chrome"'
 else
     let g:previm_open_cmd = 'chromium-browser'
