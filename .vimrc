@@ -412,6 +412,11 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
+" SQLFmt
+" デフォルトは'sqlformat -r -k upper -o %s -'これはpythonのsqlparseが必要
+" goのsqlfmtを使う
+let g:sqlfmt_program = 'sqlfmt'
+
 "=============================================================================
 "" Functions
 "=============================================================================
