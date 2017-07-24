@@ -54,6 +54,7 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
 Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
+Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -268,13 +269,13 @@ set scrolloff=1
 if has('gui_running')
     set guicursor=a:blinkon0
 else
-    " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-    let &t_ti.="\e[1 q"
-    let &t_SI.="\e[5 q"
-    let &t_EI.="\e[1 q"
-    let &t_te.="\e[0 q"
+" let &t_ti.="\e[1 q"
+" let &t_SI.="\e[5 q"
+" let &t_EI.="\e[1 q"
+" let &t_te.="\e[0 q"
 endif
 
 " Disable visualbell
@@ -393,8 +394,9 @@ else
 endif
 
 " vim-table-mode
-let g:table_mode_corner_corner='+'
-let g:table_mode_header_fillchar='='
+" let g:table_mode_corner_corner='+'
+" let g:table_mode_header_fillchar='='
+let g:table_mode_corner='|'
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
   let mapping_pattern = '\V' . escape(a:mapping, '\')
