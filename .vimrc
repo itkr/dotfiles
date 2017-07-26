@@ -429,6 +429,18 @@ if !exists('*s:setupWrapping')
     endfunction
 endif
 
+" jq
+" 参考: http://qiita.com/tekkoc/items/324d736f68b0f27680b8#jq%E3%81%A7%E6%95%B4%E5%BD%A2%E3%81%99%E3%82%8B
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
+
 " =============================================================================
 " Mappings
 " =============================================================================
