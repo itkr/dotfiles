@@ -397,6 +397,10 @@ if has('mac')
 else
     let g:previm_open_cmd = 'chromium-browser'
 endif
+let g:previm_enable_realtime = 1
+let g:previm_show_header = 0
+"let g:previm_disable_default_css = 1
+"let g:previm_custom_css_path = '/Users/itkr/some.css'
 
 " vim-table-mode
 " let g:table_mode_corner_corner='+'
