@@ -42,10 +42,12 @@ Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
+Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
+Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'scrooloose/syntastic'                  " 構文チェック
@@ -53,8 +55,6 @@ Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げや�
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
-Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
