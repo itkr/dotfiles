@@ -60,3 +60,10 @@ set -x fish_user_paths $GOPATH/bin $fish_user_paths
 set -U fish_user_paths ~/.pyenv/bin $fish_user_paths
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
+# ########################################
+# Others
+# ########################################
+
+# pathの重複削除
+set -x -U fish_user_paths (echo $fish_user_paths | tr ' ' '\n' | sort -u | uniq)
