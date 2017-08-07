@@ -34,6 +34,22 @@ function fish_prompt
     echo -n ' $ '
 end
 
+function fish_right_prompt
+    if [ $status -eq 0 ]
+        set_color blue
+        echo "o "
+    else
+        set_color red
+        echo "x "
+    end
+    set_color yellow
+    echo -n $USER
+    set_color magenta
+    echo -n '@'
+    set_color normal
+    hostname
+end
+
 # ########################################
 # Tool
 # ########################################
