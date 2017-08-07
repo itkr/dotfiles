@@ -6,16 +6,16 @@
 # History
 # ########################################
 
-set HISTSIZE 10000
-set HISTFILESIZE $HISTSIZE
-
-function share_history
-    history -a
-    history -c
-    history -r
-end
-
-set PROMPT_COMMAND 'share_history'
+#set HISTSIZE 10000
+#set HISTFILESIZE $HISTSIZE
+#
+#function share_history
+#    history -a
+#    history -c
+#    history -r
+#end
+#
+#set PROMPT_COMMAND 'share_history'
 # shopt -u histappend
 
 # ########################################
@@ -54,13 +54,18 @@ end
 # Tool
 # ########################################
 
-function hiscopy
-    history | awk '{$1="";print $0;}' | sort | uniq | fzf --tac | awk '{printf "%s", $0;}' | pbcopy
-end
-
-function gitb
-    git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
-end
+#switch (uname)
+#case Linux
+#    alias pbcopy='xsel --clipboard --input'
+#end
+#
+#function hiscopy
+#    history | awk '{$1="";print $0;}' | sort | uniq | fzf --tac | awk '{printf "%s", $0;}' | pbcopy
+#end
+#
+#function gitb
+#    git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
+#end
 
 # ########################################
 # Go
