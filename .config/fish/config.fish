@@ -30,17 +30,20 @@ function fish_prompt
     pyenv version | awk '{printf "(%s) ", $1;}'
     set_color 14968C
     echo -n (prompt_pwd)
-    set_color 1E78C8
-    echo -n ' $ '
+    if test (id -u) -eq 0
+        set_color ff0000
+        echo -n ' # '
+    else
+        set_color 1E78C8
+        echo -n ' $ '
+    end
 end
 
 function fish_right_prompt
-    if [ $status -eq 0 ]
-        set_color blue
-        echo "o "
-    else
+    set _status $status
+    if not [ $_status -eq 0 ]
         set_color red
-        echo "x "
+        echo $_status ""
     end
     set_color yellow
     echo -n $USER
