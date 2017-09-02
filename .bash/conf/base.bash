@@ -6,6 +6,7 @@ alias git='git stash list; git'
 alias fd='find ./ -type f -print | xargs grep'
 alias fmt_python='~/.pyenv/versions/hipchat/bin/python ~/Scripts/format.py'
 alias hisrank='history | awk '{print $2;}' | sort | uniq -c | sort -r | head -n 15'
+alias tmux='tmux -2'
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
