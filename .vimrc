@@ -55,6 +55,7 @@ Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げや�
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
+Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -293,6 +294,19 @@ autocmd GUIEnter * set visualbell t_vb=
 "" Plugin
 "=============================================================================
 
+" vim-anzu
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+augroup vim-anzu
+" TODO: 削除タイミング検討
+" 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
+" 検索ヒット数の表示を消去する
+    autocmd!
+    autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+augroup END
+
 " vim-bbye
 cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
@@ -328,7 +342,8 @@ let g:bufferline_modified = '*'
 " lightline
 let g:lightline = {
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ]
+            \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ],
+            \   'right': [ [ 'anzu', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
             \ },
             \ 'colorscheme': 'wombat'
             \ }
@@ -339,7 +354,8 @@ let g:lightline.component = {
             \ 'currentdir': '%(%{fnamemodify(getcwd(), ":~")}%)',
             \ 'lineinfo': '[%3l/%L : %-2v]'}
 let g:lightline.component_function = {
-            \ 'bufferline': 'MyBufferline'
+            \ 'bufferline': 'MyBufferline',
+            \ 'anzu': 'anzu#search_status'
             \ }
 let g:lightline.component_expand = {
             \ 'tabs': 'lightline#tabs'}
