@@ -56,6 +56,7 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
+Plug 'twitvim/twitvim'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -293,6 +294,9 @@ autocmd GUIEnter * set visualbell t_vb=
 "=============================================================================
 "" Plugin
 "=============================================================================
+
+" TwitVim
+let twitvim_enable_python = 1
 
 " vim-anzu
 nmap n <Plug>(anzu-n)
