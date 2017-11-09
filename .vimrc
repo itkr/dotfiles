@@ -85,6 +85,9 @@ Plug 'davidhalter/jedi-vim'                  " pythonのコード補完
 "" Go
 Plug 'fatih/vim-go'                          " -
 
+"" C
+Plug 'justmao945/vim-clang'
+
 call plug#end()
 
 " Required:
@@ -515,6 +518,9 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 " TODO: ダイグラフと競合するので検討
 inoremap <C-k> <C-o>D
+
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
 
 " Moving cursor
 noremap j gj
