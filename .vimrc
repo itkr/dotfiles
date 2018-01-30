@@ -88,6 +88,10 @@ Plug 'fatih/vim-go'                          " -
 "" C
 Plug 'justmao945/vim-clang'
 
+"" CSV
+"" お試し
+Plug 'mechatroner/rainbow_csv'
+
 call plug#end()
 
 " Required:
