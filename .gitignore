@@ -8,5 +8,6 @@
 .project
 .pydevproject
 .python-version
+.node-version
 /static
 local_settings.py
