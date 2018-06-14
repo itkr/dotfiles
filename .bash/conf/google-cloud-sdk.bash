@@ -2,7 +2,7 @@ CLOUD_SDK_PATH=$HOME/google-cloud-sdk
 
 # `homebrew cask`でインストールしたとき
 if [ -x /usr/local/Caskroom/google-cloud-sdk ]; then
-    CLOUD_SDK_PATH="/usr/local/Caskroom/google-cloud-sdk"
+    CLOUD_SDK_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
 fi
 
 if [ -x $CLOUD_SDK_PATH ]; then
