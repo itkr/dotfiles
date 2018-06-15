@@ -82,17 +82,16 @@ Plug 'davidhalter/jedi-vim'                  " pythonのコード補完
 " Plug 'kevinw/pyflakes-vim'                   " flask シンタックスチェック
 " Plug 'lambdalisue/vim-pyenv'                 " Vimでpyenvを扱う
 
-"" Go
+" Go
 Plug 'fatih/vim-go'                          " -
 
 "" C
 Plug 'justmao945/vim-clang'
 
-"" CSV
+" CSV
 Plug 'mechatroner/rainbow_csv'
 
 "" plist
-"" お試し
 Plug 'darfink/vim-plist'
 
 call plug#end()
@@ -306,7 +305,8 @@ autocmd GUIEnter * set visualbell t_vb=
 "=============================================================================
 
 " vim-plist
-let g:plist_display_format = 'xml'
+" let g:plist_display_format = 'xml'
+let g:plist_display_format = 'json'
 
 " TwitVim
 let twitvim_enable_python = 1
