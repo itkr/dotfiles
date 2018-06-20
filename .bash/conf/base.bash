@@ -1,10 +1,12 @@
+# export PATH=/usr/local/sbin:${PATH}
+
 # ########################################
 # Alias
 # ########################################
 
 alias git='git stash list; git'
 alias fd='find ./ -type f -print | xargs grep'
-alias fmt_python='~/.pyenv/versions/hipchat/bin/python ~/Scripts/format.py'
+alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias tmux='tmux -2'
 
 # Linux pbcopy

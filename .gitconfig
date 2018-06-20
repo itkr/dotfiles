@@ -1,6 +1,7 @@
 [user]
     name = itkr
-    email = itkrst@gmail.com
+    ; email = itkrst@gmail.com
+    email = 1531860+itkr@users.noreply.github.com
 [credential]
     helper = osxkeychain
 [color]
