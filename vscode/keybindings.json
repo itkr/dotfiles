@@ -1,0 +1,23 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "F2",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": "Enter",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+        "key": ", x",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+    {
+        "key": ", z",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    }
+]

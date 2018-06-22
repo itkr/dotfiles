@@ -1,0 +1,22 @@
+{
+    "workbench.colorTheme": "Tomorrow Night",
+    "workbench.startupEditor": "none",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.idea": true,
+        "**/*.project": true,
+        "**/*.pydevproject": true,
+        "**/*.settings": true,
+        "**/.tmp": true,
+        "**/*.pyc": true
+    },
+    "[python]": {
+        "editor.rulers": [
+            80
+        ]
+    }
+}

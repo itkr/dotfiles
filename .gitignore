@@ -9,5 +9,6 @@
 .pydevproject
 .python-version
 .node-version
+.vscode
 /static
 local_settings.py
