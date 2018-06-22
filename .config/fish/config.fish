@@ -76,12 +76,14 @@ end
 
 set -x GOPATH ~/.go
 set -U fish_user_paths $GOPATH/bin $fish_user_paths
+# set -x fish_user_paths $GOPATH/bin $fish_user_paths
 
 # ########################################
 # Pyenv
 # ########################################
 
 set -U fish_user_paths ~/.pyenv/bin $fish_user_paths
+# set -x fish_user_paths ~/.pyenv/bin $fish_user_paths
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
@@ -91,3 +93,4 @@ status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 # pathの重複削除
 set -x -U fish_user_paths (echo $fish_user_paths | tr ' ' '\n' | sort -u | uniq)
+# set -x fish_user_paths (echo $fish_user_paths | tr ' ' '\n' | sort -u | uniq)
