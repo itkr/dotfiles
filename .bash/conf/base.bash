@@ -66,3 +66,8 @@ gitb() {
 export GOPATH=${HOME}/.go
 export PATH=${PATH}:${GOPATH}/bin
 
+# ########################################
+# bat
+# ########################################
+
+export BAT_THEME="TwoDark"
