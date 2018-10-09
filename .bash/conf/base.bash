@@ -8,6 +8,8 @@ alias git='git stash list; git'
 alias fd='find ./ -type f -print | xargs grep'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias tmux='tmux -2'
+alias radio='~/Projects/github.com/itkr/my-radio/play.py'
+
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
@@ -71,3 +73,10 @@ export PATH=${PATH}:${GOPATH}/bin
 # ########################################
 
 export BAT_THEME="TwoDark"
+
+# ########################################
+# radigo
+# ########################################
+
+# in secret.bash
+# export RADIKO_MAIL="" && export RADIKO_PASSWORD=""
