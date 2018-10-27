@@ -7,3 +7,7 @@ done
 if [ -e ${HOME}/.bashrc.local ]; then
     source ${HOME}/.bash.local
 fi
+
+if [ -e ${HOME}/.bashrc.org ]; then
+    source ${HOME}/.bash.org
+fi
