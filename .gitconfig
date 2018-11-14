@@ -12,6 +12,7 @@
     editor = vim
     quotepath = false
     whitespace = cr-at-eol
+	filemode = false
 [push]
     default = current
 [alias]
