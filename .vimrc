@@ -57,6 +57,7 @@ Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCU
 Plug 'vim-scripts/grep.vim'                  " -
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'twitvim/twitvim'
+Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -424,13 +425,13 @@ if !has("gui_running")
 endif
 
 " previm
-if has('mac')
+" if has('mac')
     " Safari or Google Chrome
-    let g:previm_open_cmd = 'open -a "Google Chrome"'
-else
+    " let g:previm_open_cmd = 'open -a \"Google Chrome\"'
+" else
     " let g:previm_open_cmd = 'chromium-browser'
-    let g:previm_open_cmd = 'google-chrome'
-endif
+    " let g:previm_open_cmd = 'google-chrome'
+" endif
 let g:previm_enable_realtime = 1
 let g:previm_show_header = 0
 "let g:previm_disable_default_css = 1
