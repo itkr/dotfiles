@@ -9,5 +9,5 @@ for f in $bash_conf/*.bash; do
 done
 
 if [ -e ${HOME}/.bashrc.local ]; then
-    source ${HOME}/.bash.local
+    source ${HOME}/.bashrc.local
 fi
