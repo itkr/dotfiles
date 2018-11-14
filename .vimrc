@@ -227,9 +227,12 @@ endif
 
 if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
-        colorscheme Tomorrow
-        set background=light
+        colorscheme Tomorrow-Night
+        " colorscheme Tomorrow
+        " set background=light
+        " set guifont=Monaco:h12
         set guifont=Menlo:h12
+        set guifont=Ricty\ Diminished:h14
         set transparency=0
     else
         " TODO: Ubuntuという条件判断
