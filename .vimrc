@@ -182,7 +182,8 @@ set fileformats=unix,dos,mac
 set showcmd
 
 " Shell
-set shell=/bin/sh
+" windowsでprevimがうまく動かなかったのでいったんコメントアウト
+" set shell=/bin/sh
 
 " Decimal number
 set nrformats=
