@@ -58,6 +58,9 @@ Plug 'vim-scripts/grep.vim'                  " -
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'twitvim/twitvim'
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
+Plug 'glidenote/memolist.vim'
+let g:memolist_path = "~/.config/memo/_posts"
+let g:memolist_memo_suffix = "md"
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -226,20 +229,7 @@ if !exists('g:not_finish_vimplug')
     colorscheme Tomorrow-Night
 endif
 
-if has("gui_running")
-    if has("gui_mac") || has("gui_macvim")
-        colorscheme Tomorrow-Night
-        " colorscheme Tomorrow
-        " set background=light
-        " set guifont=Monaco:h12
-        set guifont=Menlo:h12
-        set guifont=Ricty\ Diminished:h14
-        set transparency=0
-    else
-        " TODO: Ubuntuという条件判断
-        set guifont=Ubuntu\ Mono\ Regular\ 11
-    endif
-else
+if !has("gui_running")
     if $COLORTERM == 'gnome-terminal'
         set term=gnome-256color
     else
@@ -263,10 +253,6 @@ syntax on
 " Line number
 set number
 
-" GUI
-" set guioptions=gmrTi
-set guioptions=egmrTi
-
 " Mouse
 set mousemodel=popup
 
@@ -282,9 +268,7 @@ set cursorline
 set scrolloff=1
 
 " Cursor
-if has('gui_running')
-    set guicursor=a:blinkon0
-else
+if !has('gui_running')
     if exists('$TMUX')
         " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
         " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -310,8 +294,7 @@ autocmd GUIEnter * set visualbell t_vb=
 "=============================================================================
 
 " vim-plist
-" let g:plist_display_format = 'xml'
-let g:plist_display_format = 'json'
+let g:plist_display_format = 'json'  " or 'xml'
 
 " TwitVim
 let twitvim_enable_python = 1
@@ -429,13 +412,7 @@ if !has("gui_running")
 endif
 
 " previm
-" if has('mac')
-    " Safari or Google Chrome
-    " let g:previm_open_cmd = 'open -a \"Google Chrome\"'
-" else
-    " let g:previm_open_cmd = 'chromium-browser'
-    " let g:previm_open_cmd = 'google-chrome'
-" endif
+let g:previm_open_cmd = ''  " open-browse.vimで開く
 let g:previm_enable_realtime = 1
 let g:previm_show_header = 0
 "let g:previm_disable_default_css = 1
