@@ -50,17 +50,19 @@ Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
+Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
+Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
-Plug 'twitvim/twitvim'
-Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
+
+" 検討
 Plug 'glidenote/memolist.vim'
 let g:memolist_path = "~/.config/memo/_posts"
 let g:memolist_memo_suffix = "md"
+Plug 'twitvim/twitvim'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -202,7 +204,6 @@ set hidden
 " Titie
 set title
 set titlestring=%F
-set guitablabel=%F
 
 " Clipboard
 if has('unnamedplus')
@@ -423,18 +424,18 @@ let g:previm_show_header = 0
 " let g:table_mode_header_fillchar='='
 let g:table_mode_corner='|'
 function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+    let text_before_cursor = getline('.')[0 : col('.')-1]
+    let mapping_pattern = '\V' . escape(a:mapping, '\')
+    let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+    return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
 
 inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+            \ <SID>isAtStartOfLine('\|\|') ?
+            \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+            \ <SID>isAtStartOfLine('__') ?
+            \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 " SQLFmt
 " デフォルトは'sqlformat -r -k upper -o %s -'これはpythonのsqlparseが必要
@@ -534,15 +535,11 @@ nnoremap <S-Up> vk
 vnoremap <S-Down> j
 vnoremap <S-Up> k
 
-" 再描画時に検索ハイライトを消す
-" TOOD: mapping変える
-" nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
 "
 cnoreabbrev Q q
 cnoreabbrev W w
 
-"
+" Auto format
 nnoremap == gg=G<C-o><C-o>
 
 " .vimrc short cut
