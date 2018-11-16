@@ -455,7 +455,7 @@ if !exists('*s:setupWrapping')
 endif
 
 " jq
-" 参考: http://qiita.com/tekkoc/items/324d736f68b0f27680b8#jq%E3%81%A7%E6%95%B4%E5%BD%A2%E3%81%99%E3%82%8B
+" 参考: https://qiita.com/tekkoc/items/324d736f68b0f27680b8
 command! -nargs=? Jq call s:Jq(<f-args>)
 function! s:Jq(...)
     if 0 == a:0
@@ -512,6 +512,7 @@ inoremap <C-d> <Del>
 " TODO: ダイグラフと競合するので検討
 inoremap <C-k> <C-o>D
 
+" Moving cursor in insert mode
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
