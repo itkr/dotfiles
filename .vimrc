@@ -177,8 +177,15 @@ endif
 
 " Automatically generated file
 set backupskip=/tmp/*,/private/tmp/*  " `crontab -e`が`set nobackup`の指定だけではうまく行かなかった
-set nobackup
-set noswapfile
+" set nobackup
+" set noswapfile
+if has('win32') || has('win64')
+    set backupdir=$HOME/AppData/Local/Temp
+    set directory=$HOME/AppData/Local/Temp
+else
+    set backupdir=/tmp
+    set directory=/tmp
+endif
 
 " File formats
 set fileformats=unix,dos,mac
