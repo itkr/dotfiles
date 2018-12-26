@@ -57,6 +57,7 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
+Plug 'lambdalisue/fila.vim'
 
 " 検討
 Plug 'glidenote/memolist.vim'

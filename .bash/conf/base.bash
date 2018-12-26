@@ -9,7 +9,8 @@ alias fd='find ./ -type f -print | xargs grep'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias tmux='tmux -2'
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
-
+# alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%an] %C(reset)%s %C(red)%d' --date=iso"
+alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(reset)%s %C(red)%d' --date=iso"
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
@@ -58,7 +59,8 @@ hiscopy() {
 }
 
 gitb() {
-    git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
+    # git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
+    git branch | fzf | awk '{printf "%s", $NF;}' | pbcopy
 }
 
 # ########################################
@@ -80,3 +82,9 @@ export BAT_THEME="TwoDark"
 
 # in secret.bash
 # export RADIKO_MAIL="" && export RADIKO_PASSWORD=""
+
+# ########################################
+# fzf
+# ########################################
+
+export FZF_DEFAULT_OPTS='--reverse'
