@@ -40,13 +40,13 @@ def get_python_files():
 
 def main():
     for path in get_python_files():
-        # execute('docformatter %s -i' % path)
-        # execute('pyformat -i %s' % path)
-
-        execute('autoflake %s -i' % path)
-        execute('autopep8 %s -i --max-line-length 120' % path)
-        execute('isort %s -m 3' % path)
-        execute('unify %s -i' % path)
+        # execute('docformatter {} -i'.format(path))
+        # execute('isort {} -m 3 -ns __init__.py'.format(path))
+        # execute('pyformat -i {}'.format(path))
+        execute('autoflake {} -i'.format(path))
+        execute('autopep8 {} -i --max-line-length 120'.format(path))
+        execute('isort {} -m 3'.format(path))
+        execute('unify {} -i'.format(path))
         print(path)
 
 
