@@ -4,13 +4,14 @@
 # Alias
 # ########################################
 
-alias git='git stash list; git'
+# alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%an] %C(reset)%s %C(red)%d' --date=iso"
 alias fd='find ./ -type f -print | xargs grep'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
-alias tmux='tmux -2'
-alias radio='~/Projects/github.com/itkr/my-radio/play.py'
-# alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%an] %C(reset)%s %C(red)%d' --date=iso"
+alias git='git stash list; git'
 alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(reset)%s %C(red)%d' --date=iso"
+alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/https:\/\//g" | sed -e "s/\.git//g")'
+alias radio='~/Projects/github.com/itkr/my-radio/play.py'
+alias tmux='tmux -2'
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
