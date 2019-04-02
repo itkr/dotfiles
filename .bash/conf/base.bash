@@ -12,6 +12,7 @@ alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(
 alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/https:\/\//g" | sed -e "s/\.git//g")'
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
+alias gitbr='git branch -r --merged origin/develop | grep -v -E "develop|master"'
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
