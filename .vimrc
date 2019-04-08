@@ -34,10 +34,10 @@ Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)        
 Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
 
 " Basic
-Plug 'Shougo/unite.vim'                      " 統合インターフェイス
-Plug 'Shougo/vimfiler.vim'                   " ファイラ(Uniteに依存)
-Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
-Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
+" Plug 'Shougo/unite.vim'                      " 統合インターフェイス
+" Plug 'Shougo/vimfiler.vim'                   " ファイラ(Uniteに依存)
+" Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
+" Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
@@ -57,13 +57,13 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-Plug 'lambdalisue/fila.vim'
+Plug 'lambdalisue/fila.vim'                  " ファイラ
 
 " 検討
-Plug 'glidenote/memolist.vim'
-let g:memolist_path = "~/.config/memo/_posts"
-let g:memolist_memo_suffix = "md"
-Plug 'twitvim/twitvim'
+" Plug 'glidenote/memolist.vim'
+" let g:memolist_path = "~/.config/memo/_posts"
+" let g:memolist_memo_suffix = "md"
+" Plug 'twitvim/twitvim'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -323,15 +323,18 @@ cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
 
 " VimFiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_tree_leaf_icon      = '┆'
-let g:vimfiler_tree_opened_icon    = '▿'
-let g:vimfiler_tree_closed_icon    = '▸'
-let g:vimfiler_file_icon           = '-'
-let g:vimfiler_marked_file_icon    = '*'
-let g:vimfiler_readonly_file_icon  = '✗'
-let g:vimfiler_ignore_pattern      = '\(^\.\|\.pyc$\|\.db$\|\.sqlite$\|\.rbc$\)'
-noremap <F3> :VimFilerExplorer<CR>
+" let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_tree_leaf_icon      = '┆'
+" let g:vimfiler_tree_opened_icon    = '▿'
+" let g:vimfiler_tree_closed_icon    = '▸'
+" let g:vimfiler_file_icon           = '-'
+" let g:vimfiler_marked_file_icon    = '*'
+" let g:vimfiler_readonly_file_icon  = '✗'
+" let g:vimfiler_ignore_pattern      = '\(^\.\|\.pyc$\|\.db$\|\.sqlite$\|\.rbc$\)'
+" noremap <F3> :VimFilerExplorer<CR>
+
+" Fila.vim
+noremap <F3> :Fila -drawer -toggle -keep<CR>
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -340,8 +343,8 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " vimshell.vim
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
+" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" let g:vimshell_prompt =  '$ '
 
 " bufferline
 " let g:bufferline_echo = 0
