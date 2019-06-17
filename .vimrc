@@ -184,8 +184,10 @@ if has('win32') || has('win64')
     set backupdir=$HOME/AppData/Local/Temp
     set directory=$HOME/AppData/Local/Temp
 else
-    set backupdir=/tmp
-    set directory=/tmp
+    " set backupdir=/tmp
+    " set directory=/tmp
+    set backupdir=~/.vim/tmp
+    set directory=~/.vim/tmp
 endif
 
 " File formats
