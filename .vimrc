@@ -308,7 +308,7 @@ autocmd GUIEnter * set visualbell t_vb=
 let g:plist_display_format = 'json'  " or 'xml'
 
 " TwitVim
-let twitvim_enable_python = 1
+" let twitvim_enable_python = 1
 
 " vim-anzu
 nmap n <Plug>(anzu-n)
