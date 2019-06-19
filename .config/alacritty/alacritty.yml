@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 5
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -109,7 +109,7 @@ font:
     #   - (Linux) monospace
     #   - (Windows) Consolas
     #family: monospace
-    family: "Ricty\ Diminished"
+    family: "Ricty Diminished"
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -144,6 +144,7 @@ font:
   offset:
     x: 0
     y: 0
+    # y: -2
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -151,6 +152,7 @@ font:
   glyph_offset:
     x: 0
     y: 0
+    # y: -2
 
   # Thin stroke font rendering (macOS only)
   #
@@ -171,12 +173,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Tomorrow Night)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
     # Bright and dim foreground colors
     #
@@ -203,27 +205,32 @@ colors:
   #  text: '0xeaeaea'
   #  background: '0x404040'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1d1f21'
+    cursor: '0xfe39d9'
+
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
     yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
     cyan:    '0x70c0ba'
-    white:   '0xeaeaea'
+    white:   '0x373b41'
 
   # Bright colors
   bright:
     black:   '0x666666'
     red:     '0xff3334'
     green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
     magenta: '0xb77ee0'
     cyan:    '0x54ced6'
-    white:   '0xffffff'
+    white:   '0x282a2e'
 
   # Dim colors
   #
