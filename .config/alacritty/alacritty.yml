@@ -25,9 +25,9 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  #position:
-  #  x: 0
-  #  y: 0
+  position:
+    x: 0
+    y: 0
 
   # Window padding (changes require restart)
   #
@@ -108,33 +108,32 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    #family: monospace
     family: "Ricty Diminished"
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: "Ricty Diminished"
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: "Ricty Diminished"
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Point size
   size: 14.0
@@ -177,8 +176,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xc5c8c6'
+    background: '0x36383b'
+    foreground: '0xdadfe0'
 
     # Bright and dim foreground colors
     #
@@ -212,14 +211,14 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x1d1f21'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xe6c547'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0x70c0ba'
-    white:   '0x373b41'
+    black:   '0x313637'
+    red:     '0xf76050'
+    green:   '0x73a467'
+    yellow:  '0xc39800'
+    blue:    '0x258ad1'
+    magenta: '0x8b94dc'
+    cyan:    '0x05a49e'
+    white:   '0xdadfe0'
 
   # Bright colors
   bright:
