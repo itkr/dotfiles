@@ -34,10 +34,6 @@ Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)        
 Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
 
 " Basic
-" Plug 'Shougo/unite.vim'                      " 統合インターフェイス
-" Plug 'Shougo/vimfiler.vim'                   " ファイラ(Uniteに依存)
-" Plug 'Shougo/vimproc.vim', {'do': g:make}    " 非同期実行
-" Plug 'Shougo/vimshell.vim'                   " Vimでシェル(vimprocに依存)
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
@@ -58,12 +54,6 @@ Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで�
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
 Plug 'lambdalisue/fila.vim'                  " ファイラ
-
-" 検討
-" Plug 'glidenote/memolist.vim'
-" let g:memolist_path = "~/.config/memo/_posts"
-" let g:memolist_memo_suffix = "md"
-" Plug 'twitvim/twitvim'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -196,10 +186,6 @@ set fileformats=unix,dos,mac
 " Commands
 set showcmd
 
-" Shell
-" windowsでprevimがうまく動かなかったのでいったんコメントアウト
-" set shell=/bin/sh
-
 " Decimal number
 set nrformats=
 
@@ -281,17 +267,11 @@ set scrolloff=1
 " Cursor
 if !has('gui_running')
     if exists('$TMUX')
-        " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
         let &t_SI = "\ePtmux;\e\e[6 q\e\\"
         let &t_EI = "\ePtmux;\e\e[2 q\e\\"
     else
-        " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
         let &t_SI.="\e[6 q"
         let &t_EI.="\e[2 q"
-        " let &t_ti.="\e[2 q"
-        " let &t_te.="\e[0 q"
         let &t_SR.="\e[4 q"
     endif
 endif
@@ -307,9 +287,6 @@ autocmd GUIEnter * set visualbell t_vb=
 " vim-plist
 let g:plist_display_format = 'json'  " or 'xml'
 
-" TwitVim
-" let twitvim_enable_python = 1
-
 " vim-anzu
 nmap n <Plug>(anzu-n)
 nmap N <Plug>(anzu-N)
@@ -324,17 +301,6 @@ augroup END
 cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
 
-" VimFiler
-" let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_tree_leaf_icon      = '┆'
-" let g:vimfiler_tree_opened_icon    = '▿'
-" let g:vimfiler_tree_closed_icon    = '▸'
-" let g:vimfiler_file_icon           = '-'
-" let g:vimfiler_marked_file_icon    = '*'
-" let g:vimfiler_readonly_file_icon  = '✗'
-" let g:vimfiler_ignore_pattern      = '\(^\.\|\.pyc$\|\.db$\|\.sqlite$\|\.rbc$\)'
-" noremap <F3> :VimFilerExplorer<CR>
-
 " Fila.vim
 noremap <F3> :Fila -drawer -toggle -keep<CR>
 
@@ -344,12 +310,7 @@ let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
-" vimshell.vim
-" let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-" let g:vimshell_prompt =  '$ '
-
 " bufferline
-" let g:bufferline_echo = 0
 let g:bufferline_echo = 1
 let g:bufferline_active_buffer_left = '❰'
 let g:bufferline_active_buffer_right = '❱'
@@ -433,8 +394,6 @@ let g:previm_show_header = 0
 "let g:previm_custom_css_path = '/Users/itkr/some.css'
 
 " vim-table-mode
-" let g:table_mode_corner_corner='+'
-" let g:table_mode_header_fillchar='='
 let g:table_mode_corner='|'
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -534,20 +493,10 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-noremap <Down> g<Down>
-noremap <Up> g<Up>
-noremap g<Down> <Down>
-noremap g<Up> <Up>
 
 " Comment out
 nmap <leader>/ gcc
 vmap <leader>/ gc
-
-" Start visual mode
-nnoremap <S-Down> vj
-nnoremap <S-Up> vk
-vnoremap <S-Down> j
-vnoremap <S-Up> k
 
 "
 cnoreabbrev Q q
@@ -609,15 +558,3 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 " python syntax highlight
 let python_highlight_all = 1
-
-"=============================================================================
-"" Extra
-"=============================================================================
-
-if filereadable(expand("~/.vim/colors/custom.vim"))
-    source ~/.vim/colors/custom.vim
-endif
-
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-endif
