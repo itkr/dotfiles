@@ -382,7 +382,6 @@ if !has("gui_running")
     " IndentLine
     let g:indentLine_enabled = 1
     let g:indentLine_concealcursor = 0
-    " let g:indentLine_char = '┆'  " WSLでうまくいかなかった
     let g:indentLine_faster = 1
 endif
 
@@ -390,8 +389,6 @@ endif
 let g:previm_open_cmd = ''  " open-browse.vimで開く
 let g:previm_enable_realtime = 1
 let g:previm_show_header = 0
-"let g:previm_disable_default_css = 1
-"let g:previm_custom_css_path = '/Users/itkr/some.css'
 
 " vim-table-mode
 let g:table_mode_corner='|'
