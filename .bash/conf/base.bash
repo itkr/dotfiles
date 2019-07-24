@@ -4,7 +4,6 @@
 # Alias
 # ########################################
 
-# alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%an] %C(reset)%s %C(red)%d' --date=iso"
 alias fd='find ./ -type f -print | xargs grep'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias git='git stash list; git'
@@ -68,7 +67,6 @@ hiscopy() {
 }
 
 gitb() {
-    # git branch | peco | awk '{printf "%s", $NF;}' | pbcopy
     git branch | fzf | awk '{printf "%s", $NF;}' | pbcopy
 }
 
