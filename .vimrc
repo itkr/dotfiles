@@ -311,9 +311,7 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " bufferline
-let g:bufferline_echo = 1
-let g:bufferline_active_buffer_left = '❰'
-let g:bufferline_active_buffer_right = '❱'
+" let g:bufferline_echo = 1
 let g:bufferline_modified = '*'
 
 " lightline
