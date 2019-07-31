@@ -478,8 +478,8 @@ inoremap <C-d> <Del>
 inoremap <C-k> <C-o>D
 
 " Moving cursor in insert mode
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+" inoremap <Down> <C-o>gj
+" inoremap <Up> <C-o>gk
 
 " Moving cursor
 noremap j gj
