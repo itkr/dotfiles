@@ -12,3 +12,4 @@
 .vscode
 /static
 local_settings.py
+venv/
