@@ -12,6 +12,11 @@ alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/htt
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
 alias gitbr='git branch -r --merged origin/develop | grep -v -E "develop|master"'
+alias ls='ls -F'
+
+if [ "$(uname)" = 'Darwin' ]; then
+    alias ls='ls -FG'
+fi
 
 # Linux pbcopy
 if (! which pbcopy > /dev/null); then
