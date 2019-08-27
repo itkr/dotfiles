@@ -11,3 +11,5 @@ if [ -x $CLOUD_SDK_PATH ]; then
     # The next line enables bash completion for gcloud.
     source $CLOUD_SDK_PATH/completion.bash.inc
 fi
+
+export CLOUDSDK_PYTHON="${HOME}/.pyenv/versions/global/bin/python"
