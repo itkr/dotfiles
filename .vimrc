@@ -165,6 +165,9 @@ set smartcase
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
+if executable('pt')
+    set grepprg=pt\ --nogroup\ --nocolor
+endif
 
 " Automatically generated file
 set backupskip=/tmp/*,/private/tmp/*  " `crontab -e`が`set nobackup`の指定だけではうまく行かなかった
