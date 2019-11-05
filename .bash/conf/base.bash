@@ -13,6 +13,7 @@ alias ls='ls -F'
 alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/https:\/\//g" | sed -e "s/\.git//g")'
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
+alias vi='vi -u NONE -N'
 
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'

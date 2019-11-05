@@ -255,6 +255,7 @@ set number
 
 " Mouse
 set mousemodel=popup
+set mouse=a
 
 " Status line
 set laststatus=2
