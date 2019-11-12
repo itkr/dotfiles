@@ -24,10 +24,5 @@ let g:syntastic_python_checkers=['python', 'flake8']
 "" Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 
-" vim-polyglot(vim-markdown)でmarkdownのリンクを畳み込まない
-let g:vim_markdown_conceal = 0
-" vim-polyglot(vim-markdown)でmarkdownのコードブロックを畳み込まない
-let g:vim_markdown_conceal_code_blocks = 0
-
 " python syntax highlight
 let python_highlight_all = 1

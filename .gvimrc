@@ -16,9 +16,8 @@ endif
 " Color scheme
 " =============================================================================
 
-colorscheme Tomorrow-Night
-" colorscheme Tomorrow
-" set background=light
+colorscheme Tomorrow
+set background=light
 
 if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
