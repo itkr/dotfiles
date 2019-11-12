@@ -602,3 +602,8 @@ function! s:configure_lsp() abort
   nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
   nnoremap <buffer> <F2> :<C-u>LspRename<CR>
 endfunction
+
+" vim-lsp
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '⚠', 'icon': '/path/to/some/icon'} " icons require GUI
+let g:lsp_signs_hint = {'icon': '/path/to/some/other/icon'} " icons require GUI
