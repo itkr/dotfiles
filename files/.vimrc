@@ -42,6 +42,7 @@ Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
+Plug 'lambdalisue/fila.vim'                  " ファイラ
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
@@ -53,11 +54,13 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-Plug 'lambdalisue/fila.vim'                  " ファイラ
 
 " LSP
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+" complete
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -313,7 +316,6 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " bufferline
-" let g:bufferline_echo = 1
 let g:bufferline_modified = '*'
 
 " lightline
