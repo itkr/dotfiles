@@ -173,14 +173,10 @@ endif
 
 " Automatically generated file
 set backupskip=/tmp/*,/private/tmp/*  " `crontab -e`が`set nobackup`の指定だけではうまく行かなかった
-" set nobackup
-" set noswapfile
 if has('win32') || has('win64')
     set backupdir=$HOME/AppData/Local/Temp
     set directory=$HOME/AppData/Local/Temp
 else
-    " set backupdir=/tmp
-    " set directory=/tmp
     set backupdir=~/.vim/tmp
     set directory=~/.vim/tmp
 endif
@@ -488,9 +484,6 @@ vmap <leader>/ gc
 "
 cnoreabbrev Q q
 cnoreabbrev W w
-
-" Auto format
-nnoremap == gg=G<C-o><C-o>
 
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
