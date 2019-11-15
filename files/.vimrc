@@ -2,6 +2,8 @@
 " Basic
 " =============================================================================
 
+" {{{
+
 " %で対になるタグなどに飛ぶ
 runtime macros/matchit.vim
 
@@ -72,9 +74,13 @@ endif
 " History
 set history=200
 
+" }}}
+
 " =============================================================================
 " Mappings
 " =============================================================================
+
+" {{{
 
 " leaderをマッピング
 let mapleader=','
@@ -141,50 +147,13 @@ cnoreabbrev W w
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
 
-" =============================================================================
-" Visual
-" =============================================================================
-
-" Syntax
-syntax on
-
-" Line number
-set number
-
-" Mouse
-set mousemodel=popup
-set mouse=a
-
-" Status line
-set laststatus=2
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-
-" Tabline
-set showtabline=2
-
-" Cursor
-set cursorline
-set scrolloff=1
-
-" Cursor
-if !has('gui_running')
-    if exists('$TMUX')
-        let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-        let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-    else
-        let &t_SI.="\e[6 q"
-        let &t_EI.="\e[2 q"
-        let &t_SR.="\e[4 q"
-    endif
-endif
-
-" Disable visualbell
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
+" }}}
 
 " =============================================================================
 " Color scheme
 " =============================================================================
+
+" {{{
 
 " Override color scheme
 augroup change-color-scheme
@@ -209,9 +178,58 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+" }}}
+
+" =============================================================================
+" Visual
+" =============================================================================
+
+" {{{
+
+" Syntax
+syntax on
+
+" Line number
+set number
+
+" Mouse
+set mousemodel=popup
+set mouse=a
+
+" Status line
+set laststatus=2
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+" Tabline
+set showtabline=2
+
+" Disable visualbell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Cursor
+set cursorline
+set scrolloff=1
+
+" Cursor
+if !has('gui_running')
+    if exists('$TMUX')
+        let &t_SI = "\ePtmux;\e\e[6 q\e\\"
+        let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+    else
+        let &t_SI.="\e[6 q"
+        let &t_EI.="\e[2 q"
+        let &t_SR.="\e[4 q"
+    endif
+endif
+
+" }}}
+
 "=============================================================================
 "" Functions
 "=============================================================================
+
+" {{{
 
 if !exists('*s:setupWrapping')
     function s:setupWrapping()
@@ -221,9 +239,13 @@ if !exists('*s:setupWrapping')
     endfunction
 endif
 
+" }}}
+
 "=============================================================================
 "" Autocmd Rules
 "=============================================================================
+
+" {{{
 
 " TODO: 検討
 
@@ -252,9 +274,16 @@ augroup vimrc-make-cmake
     autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
+" vimrcの折りたたみ
+autocmd FileType vim setlocal foldmethod=marker
+
+" }}}
+
 " =============================================================================
 " Vim-PLug core
 " =============================================================================
+
+" {{{
 
 if has('vim_starting')
     set nocompatible  " Be iMproved
@@ -274,6 +303,8 @@ endif
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
+" }}}
+
 "=============================================================================
 "" Plug install packages
 "=============================================================================
@@ -282,6 +313,8 @@ let g:make = 'gmake'
 if exists('make')
     let g:make = 'make'
 endif
+
+" {{{
 
 "" Snippets
 Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
@@ -352,12 +385,16 @@ Plug 'darfink/vim-plist'
 
 call plug#end()
 
+" }}}
+
 " Required:
 filetype plugin indent on
 
 "=============================================================================
 "" Plugin settings
 "=============================================================================
+
+" {{{
 
 " Color Schema
 if !exists('g:not_finish_vimplug')
@@ -487,6 +524,8 @@ inoreabbrev <expr> __
 " デフォルトは'sqlformat -r -k upper -o %s -'これはpythonのsqlparseが必要
 " goのsqlfmtを使う
 let g:sqlfmt_program = 'sqlfmt'
+
+" }}}
 
 " ===== LSP =====
 "
