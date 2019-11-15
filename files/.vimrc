@@ -167,10 +167,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-endif
-if executable('pt')
+if executable('pt')  " agから移行
     set grepprg=pt\ --nogroup\ --nocolor
 endif
 
@@ -490,6 +487,8 @@ cnoreabbrev W w
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
 
+" ===== LSP =====
+"
 " vim-lsp
 " https://kashewnuts.github.io/2019/01/28/move_from_jedivim_to_vimlsp.html
 " TODO: 見直し・更新する
@@ -518,6 +517,7 @@ augroup MyLsp
     autocmd FileType python call s:configure_lsp()
   endif
 augroup END
+
 " 言語ごとにServerが実行されたらする設定を関数化
 function! s:configure_lsp() abort
   setlocal omnifunc=lsp#complete   " オムニ補完を有効化
@@ -536,5 +536,5 @@ endfunction
 
 " vim-lsp
 let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '⚠', 'icon': '/path/to/some/icon'} " icons require GUI
-let g:lsp_signs_hint = {'icon': '/path/to/some/other/icon'} " icons require GUI
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': '？'}
