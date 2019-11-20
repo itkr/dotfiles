@@ -74,6 +74,12 @@ endif
 " History
 set history=200
 
+" make
+let g:make = 'gmake'
+if exists('make')
+    let g:make = 'make'
+endif
+
 " }}}
 
 " =============================================================================
@@ -308,11 +314,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "=============================================================================
 "" Plug install packages
 "=============================================================================
-
-let g:make = 'gmake'
-if exists('make')
-    let g:make = 'make'
-endif
 
 " {{{
 
