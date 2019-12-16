@@ -505,6 +505,11 @@ let g:previm_open_cmd = ''  " open-browse.vimで開く
 let g:previm_enable_realtime = 1
 let g:previm_show_header = 0
 
+" vim-polyglot(vim-markdown)でmarkdownのリンクを畳み込まない
+let g:vim_markdown_conceal = 0
+" vim-polyglot(vim-markdown)でmarkdownのコードブロックを畳み込まない
+let g:vim_markdown_conceal_code_blocks = 0
+
 " vim-table-mode
 let g:table_mode_corner='|'
 function! s:isAtStartOfLine(mapping)
