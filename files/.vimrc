@@ -318,8 +318,8 @@ call plug#begin(expand('~/.vim/plugged'))
 " {{{
 
 "" Snippets
-Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
-Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
+" Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
+" Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
 
 " Basic
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
@@ -463,10 +463,10 @@ function! MyBufferline()
 endfunction
 
 "" snippets
-let g:UltiSnipsExpandTrigger                  = "<tab>"
-let g:UltiSnipsJumpForwardTrigger             = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
-let g:UltiSnipsEditSplit                      = "vertical"
+" let g:UltiSnipsExpandTrigger                  = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger             = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
+" let g:UltiSnipsEditSplit                      = "vertical"
 
 "" syntastic
 let g:syntastic_always_populate_loc_list      = 1
