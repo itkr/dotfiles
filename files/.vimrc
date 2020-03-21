@@ -504,6 +504,8 @@ endif
 let g:previm_open_cmd = ''  " open-browse.vimで開く
 let g:previm_enable_realtime = 1
 let g:previm_show_header = 0
+let g:previm_disable_default_css = 1
+let g:previm_custom_css_path = '~/Projects/github.com/itkr/dotfiles/files/markdown.css'
 
 " vim-polyglot(vim-markdown)でmarkdownのリンクを畳み込まない
 let g:vim_markdown_conceal = 0
