@@ -318,8 +318,8 @@ call plug#begin(expand('~/.vim/plugged'))
 " {{{
 
 "" Snippets
-Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
-Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
+" Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
+" Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
 
 " Basic
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
@@ -332,7 +332,6 @@ Plug 'kannokanno/previm'                     " Markdownをブラウザでプレ�
 Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'lambdalisue/fila.vim'                  " ファイラ
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
-Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
@@ -342,6 +341,9 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
+
+" SQL
+Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 
 " LSP
 Plug 'prabirshrestha/async.vim'
@@ -463,10 +465,10 @@ function! MyBufferline()
 endfunction
 
 "" snippets
-let g:UltiSnipsExpandTrigger                  = "<tab>"
-let g:UltiSnipsJumpForwardTrigger             = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
-let g:UltiSnipsEditSplit                      = "vertical"
+" let g:UltiSnipsExpandTrigger                  = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger             = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
+" let g:UltiSnipsEditSplit                      = "vertical"
 
 "" syntastic
 let g:syntastic_always_populate_loc_list      = 1
