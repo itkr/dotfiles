@@ -422,7 +422,8 @@ cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
 
 " Fila.vim
-noremap <F3> :Fila -drawer -toggle -keep<CR>
+" noremap <F3> :Fila -drawer -toggle -keep<CR>
+noremap <F3> :Fern . -drawer -toggle -keep<CR>
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
