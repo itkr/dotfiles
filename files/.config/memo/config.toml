@@ -1,8 +1,7 @@
-# memodir = "${HOME}/Dropbox/Memo/_posts"
-memodir = "${HOME}/Dropbox (個人)/Memo/_posts"
+memodir = "${HOME}/Dropbox/Memo/_posts"
 editor = "vim"
 column = 50
-selectcmd = "peco"
+selectcmd = "fzf"
 grepcmd = "ag ${PATTERN} ${FILES}"
 assetsdir = "${HOME}/.config/memo/assets"
 pluginsdir = "${HOME}/.config/memo/plugins"
