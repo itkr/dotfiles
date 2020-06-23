@@ -329,10 +329,6 @@ call plug#begin(expand('~/.vim/plugged'))
 
 " {{{
 
-"" Snippets
-" Plug 'SirVer/ultisnips'                      " Snippets(v:version >=704)             TODO: 検討
-" Plug 'honza/vim-snippets'                    " Snippets                              TODO: 検討
-
 " Basic
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
@@ -379,12 +375,6 @@ Plug 'tpope/vim-haml'                        " -
 
 "" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'          " -
-
-"" Python Bundle
-" Plug 'davidhalter/jedi-vim'                  " pythonのコード補完
-" Plug 'hdima/python-syntax'                   " pythonのシンタックスグループを追加
-" Plug 'kevinw/pyflakes-vim'                   " flask シンタックスチェック
-" Plug 'lambdalisue/vim-pyenv'                 " Vimでpyenvを扱う
 
 " Go
 Plug 'fatih/vim-go'                          " -
@@ -476,12 +466,6 @@ function! MyBufferline()
     let a = g:bufferline_status_info.after
     return b . c . a
 endfunction
-
-"" snippets
-" let g:UltiSnipsExpandTrigger                  = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger             = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger            = "<c-b>"
-" let g:UltiSnipsEditSplit                      = "vertical"
 
 "" syntastic
 let g:syntastic_always_populate_loc_list      = 1
@@ -580,6 +564,31 @@ augroup MyLsp
     autocmd FileType python call s:configure_lsp()
   endif
 augroup END
+
+" go用(仮)
+if executable('gopls')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['gopls']},
+        \ 'whitelist': ['go'],
+        \ 'workspace_config': {'gopls': {
+        \     'staticcheck': v:true,
+        \     'completeUnimported': v:true,
+        \     'caseSensitiveCompletion': v:true,
+        \     'usePlaceholders': v:true,
+        \     'completionDocumentation': v:true,
+        \     'watchFileChanges': v:true,
+        \     'hoverKind': 'SingleLine',
+        \   }},
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+    autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
+    autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
+  augroup END
+endif
 
 " 言語ごとにServerが実行されたらする設定を関数化
 function! s:configure_lsp() abort

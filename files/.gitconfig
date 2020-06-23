@@ -19,4 +19,4 @@
     co = checkout
 [ghq]
 	root = ~/.ghq     ; default
-	root = ~/.go/src  ; GOPATH
+	; root = ~/.go/src  ; GOPATH
