@@ -338,7 +338,7 @@ Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
-Plug 'lambdalisue/fila.vim'                  " ファイラ
+Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
@@ -426,6 +426,7 @@ cnoreabbrev bd! Bd!
 " Fila.vim
 " noremap <F3> :Fila -drawer -toggle -keep<CR>
 noremap <F3> :Fern . -drawer -toggle -keep<CR>
+let g:fern#disable_viewer_hide_cursor = 1
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -481,7 +482,8 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " vim-rooter
-let g:rooter_use_lcd = 1
+" let g:rooter_use_lcd = 1
+let g:rooter_cd_cmd="lcd"
 
 " vim-session
 let g:session_directory = "~/.vim/session"
