@@ -14,6 +14,7 @@ alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/htt
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
 alias vi='vi -u NONE -N'
+alias act='source ~/Scripts/activate.sh'
 
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'
@@ -56,7 +57,7 @@ function hisrank {
 # Prompt
 # ########################################
 
-export PS1='\[\033[01;36m\]\w\[\033[00m\] \[\033[01;34m\]\$ \[\033[00m\]'
+export PS1='[$(date +%Y/%m/%d\ %H:%M:%S)] \[\033[01;36m\]\w\[\033[00m\] \[\033[01;34m\]\$ \[\033[00m\]'
 
 #formattedGitBranch() {
 #    _branch=`git branch 2>/dev/null | grep '*' | tr -d ' *()'`
