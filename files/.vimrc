@@ -149,6 +149,7 @@ vmap <leader>/ gc
 "
 cnoreabbrev Q q
 cnoreabbrev W w
+cnoreabbrev Noh noh
 
 " .vimrc short cut
 command! Preferences edit $MYVIMRC
@@ -427,6 +428,7 @@ cnoreabbrev bd! Bd!
 " noremap <F3> :Fila -drawer -toggle -keep<CR>
 noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
+let g:fern#disable_drawer_auto_resize = 1
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
