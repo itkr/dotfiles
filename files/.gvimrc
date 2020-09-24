@@ -19,6 +19,10 @@ endif
 colorscheme Tomorrow
 set background=light
 
+" =============================================================================
+" Font
+" =============================================================================
+
 if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
     set transparency=0
@@ -47,3 +51,9 @@ set guicursor=a:blinkon0
 
 " .gvimrc short cut
 command! Preferences edit $MYGVIMRC
+
+" =============================================================================
+" Plugin Settings
+" =============================================================================
+
+let g:fern#renderer = "nerdfont"

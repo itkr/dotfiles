@@ -437,7 +437,7 @@ noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
 let g:fern#drawer_width = 40
-let g:fern#renderer = "nerdfont"
+" let g:fern#renderer = "nerdfont"
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
