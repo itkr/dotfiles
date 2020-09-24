@@ -28,7 +28,8 @@ else
     " TODO: Ubuntuという条件判断
     set guifont=Ubuntu\ Mono\ Regular\ 11
 endif
-set guifont=Ricty\ Diminished:h14
+" set guifont=Ricty\ Diminished:h14
+set guifont=Hack\ Nerd\ Font:h12
 
 " =============================================================================
 " Visual
