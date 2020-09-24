@@ -339,7 +339,6 @@ Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
-Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
@@ -351,6 +350,11 @@ Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで�
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
 
+"
+Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 
@@ -360,6 +364,8 @@ Plug 'prabirshrestha/vim-lsp'
 " complete
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" settings
+" Plug 'mattn/vim-lsp-settings'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -367,6 +373,7 @@ Plug 'xolox/vim-session'                     " セッション管理
 
 " Color
 Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
+Plug 'yasukotelin/shirotelin'
 
 "" HTML Bundle
 Plug 'gorodinskiy/vim-coloresque'            " -
@@ -424,11 +431,13 @@ augroup END
 cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
 
-" Fila.vim
+" Fern.vim (旧Fila.vim)
 " noremap <F3> :Fila -drawer -toggle -keep<CR>
 noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
-let g:fern#disable_drawer_auto_resize = 1
+" let g:fern#disable_drawer_auto_resize = 1
+let g:fern#drawer_width = 40
+let g:fern#renderer = "nerdfont"
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
