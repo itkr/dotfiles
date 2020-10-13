@@ -33,7 +33,7 @@ else
     set guifont=Ubuntu\ Mono\ Regular\ 11
 endif
 " set guifont=Ricty\ Diminished:h14
-set guifont=Hack\ Nerd\ Font:h12
+set guifont=Hack\ Nerd\ Font:h14
 
 " =============================================================================
 " Visual

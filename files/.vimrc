@@ -432,7 +432,6 @@ cnoreabbrev bd Bd
 cnoreabbrev bd! Bd!
 
 " Fern.vim (旧Fila.vim)
-" noremap <F3> :Fila -drawer -toggle -keep<CR>
 noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
