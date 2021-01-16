@@ -219,16 +219,16 @@ set cursorline
 set scrolloff=1
 
 " Cursor
-if !has('gui_running')
-    if exists('$TMUX')
-        let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-        let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-    else
-        let &t_SI.="\e[6 q"
-        let &t_EI.="\e[2 q"
-        let &t_SR.="\e[4 q"
-    endif
-endif
+" if !has('gui_running')
+"     if exists('$TMUX')
+"         let &t_SI = "\ePtmux;\e\e[6 q\e\\"
+"         let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+"     else
+"         let &t_SI.="\e[6 q"
+"         let &t_EI.="\e[2 q"
+"         let &t_SR.="\e[4 q"
+"     endif
+" endif
 
 " }}}
 
@@ -337,6 +337,7 @@ Plug 'airblade/vim-rooter'                   " 自動でルートディレクト
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
+Plug 'jszakmeister/vim-togglecursor'         " カーソルを設定する
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
@@ -543,6 +544,9 @@ inoreabbrev <expr> __
 " デフォルトは'sqlformat -r -k upper -o %s -'これはpythonのsqlparseが必要
 " goのsqlfmtを使う
 let g:sqlfmt_program = 'sqlfmt'
+
+" vim-togglecursor
+let g:togglecursor_insert = 'line'
 
 " }}}
 
