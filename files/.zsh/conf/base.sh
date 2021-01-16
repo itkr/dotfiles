@@ -57,8 +57,8 @@ function hisrank {
 # Prompt
 # ########################################
 
-# export PROMPT='[%*] %F{cyan}%~%f %F{blue}%#%f '
-export PROMPT='[%*] %F{cyan}%~%f %F{blue}$%f '
+export PROMPT='[%*] %F{cyan}%~%f %F{blue}%#%f '
+# export PROMPT='[%*] %F{cyan}%~%f %F{blue}$%f '
 
 # formattedGitBranch() {
 #    _branch=`git branch 2>/dev/null | grep '*' | tr -d ' *()'`
