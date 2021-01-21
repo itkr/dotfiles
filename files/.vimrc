@@ -294,7 +294,7 @@ augroup vimrc-make-cmake
 augroup END
 
 " vimrcの折りたたみ
-autocmd FileType vim setlocal foldmethod=marker
+" autocmd FileType vim setlocal foldmethod=marker
 
 " }}}
 
@@ -353,8 +353,8 @@ Plug 'vim-scripts/grep.vim'                  " -
 
 "
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+" Plug 'lambdalisue/nerdfont.vim'
+" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
