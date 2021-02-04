@@ -353,8 +353,6 @@ Plug 'vim-scripts/grep.vim'                  " -
 
 "
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
-" Plug 'lambdalisue/nerdfont.vim'
-" Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
@@ -386,7 +384,7 @@ Plug 'tpope/vim-haml'                        " -
 Plug 'jelera/vim-javascript-syntax'          " -
 
 " Go
-Plug 'fatih/vim-go'                          " -
+" Plug 'fatih/vim-go'                          " -
 
 "" C
 Plug 'justmao945/vim-clang'
@@ -493,7 +491,6 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " vim-rooter
-" let g:rooter_use_lcd = 1
 let g:rooter_cd_cmd="lcd"
 
 " vim-session
@@ -626,4 +623,7 @@ endfunction
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '？'}
+let g:lsp_diagnostics_echo_cursor = 1
+
+let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
