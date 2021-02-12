@@ -75,7 +75,7 @@ Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
 Plug 'yasukotelin/shirotelin'
 
 "" HTML Bundle
-Plug 'gorodinskiy/vim-coloresque'            " -
+" Plug 'gorodinskiy/vim-coloresque'            " カラーコードプレビュー 重い！
 Plug 'hail2u/vim-css3-syntax'                " -
 Plug 'mattn/emmet-vim'                       " -
 Plug 'tpope/vim-haml'                        " -
