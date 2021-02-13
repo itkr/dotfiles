@@ -72,7 +72,7 @@ Plug 'xolox/vim-session'                     " セッション管理
 
 " Color
 Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
-Plug 'yasukotelin/shirotelin'
+" Plug 'yasukotelin/shirotelin'
 
 "" HTML Bundle
 " Plug 'gorodinskiy/vim-coloresque'            " カラーコードプレビュー 重い！
