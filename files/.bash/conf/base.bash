@@ -9,13 +9,15 @@ alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias git='git stash list; git'
 alias gitbr='git branch -r --merged origin/develop | grep -v -E "develop|master"'
 alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(reset)%s %C(red)%d' --date=iso"
-alias ls='ls -F'
 alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/https:\/\//g" | sed -e "s/\.git//g")'
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
 alias vi='vi -u NONE -N'
 alias act='source ~/Scripts/activate.sh'
 
+# ubuntu
+alias ls='ls --color=auto'
+# mac
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'
 fi
