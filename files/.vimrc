@@ -218,17 +218,17 @@ autocmd GUIEnter * set visualbell t_vb=
 set cursorline
 set scrolloff=1
 
-" Cursor
-" if !has('gui_running')
-"     if exists('$TMUX')
-"         let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-"         let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-"     else
-"         let &t_SI.="\e[6 q"
-"         let &t_EI.="\e[2 q"
-"         let &t_SR.="\e[4 q"
-"     endif
-" endif
+" Cursor(Plugin使わない時用)
+if !has('gui_running')
+    if exists('$TMUX')
+        let &t_SI = "\ePtmux;\e\e[6 q\e\\"
+        let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+    else
+        let &t_SI.="\e[6 q"
+        let &t_EI.="\e[2 q"
+        let &t_SR.="\e[4 q"
+    endif
+endif
 
 " }}}
 
