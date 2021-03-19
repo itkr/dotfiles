@@ -103,3 +103,11 @@ export BAT_THEME="TwoDark"
 # ########################################
 
 export FZF_DEFAULT_OPTS='--reverse'
+
+# ########################################
+# direnv
+# ########################################
+
+if (which direnv > /dev/null); then
+    eval "$(direnv hook zsh)"
+fi
