@@ -39,7 +39,8 @@ export LANG=ja_JP.UTF-8
 # ########################################
 
 export HISTSIZE=10000
-export HISTFILESIZE=$HISTSIZE
+# export HISTFILESIZE=$HISTSIZE
+export SAVEHIST=$HISTSIZE
 
 function share_history {
     history -a
