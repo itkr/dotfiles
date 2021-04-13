@@ -22,3 +22,5 @@
 [ghq]
 	root = ~/.ghq     ; default
 	; root = ~/.go/src  ; GOPATH
+[init]
+	defaultBranch = main
