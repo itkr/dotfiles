@@ -1,6 +1,7 @@
 [user]
     name = Shota Itakura
     email = 1531860+itkr@users.noreply.github.com
+    ; email = 76994961+ctc-itkr@users.noreply.github.com
 [credential]
     helper = osxkeychain
 [color]
