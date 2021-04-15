@@ -1,25 +1,25 @@
 [user]
-    name = Shota Itakura
-    email = 1531860+itkr@users.noreply.github.com
-    ; email = 76994961+ctc-itkr@users.noreply.github.com
+	name = Shota Itakura
+	email = 1531860+itkr@users.noreply.github.com
+	; email = 76994961+ctc-itkr@users.noreply.github.com
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 [color]
-    ui = auto
+	ui = auto
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
-    quotepath = false
-    whitespace = cr-at-eol
+	excludesfile = ~/.gitignore
+	editor = vim
+	quotepath = false
+	whitespace = cr-at-eol
 	filemode = false
 [push]
-    default = current
+	default = current
 [pull]
-    rebase = true
+	rebase = true
 [alias]
-    s = status
-    b = branch
-    co = checkout
+	s = status
+	b = branch
+	co = checkout
 [ghq]
 	root = ~/.ghq     ; default
 	; root = ~/.go/src  ; GOPATH
