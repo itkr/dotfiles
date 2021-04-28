@@ -64,7 +64,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " settings
-" Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-settings'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -191,6 +191,7 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " vim-rooter
+" let g:rooter_use_lcd = 1
 let g:rooter_cd_cmd="lcd"
 
 " vim-session
@@ -258,6 +259,8 @@ let g:lsp_log_verbose = 1  " デバッグ用ログを出力
 " let g:lsp_log_file = expand('~/.cache/tmp/vim-lsp.log')  " ログ出力のPATHを設定
 
 " 言語用Serverの設定
+
+" Python
 augroup MyLsp
   autocmd!
   " pip install python-language-server
@@ -278,30 +281,11 @@ augroup MyLsp
   endif
 augroup END
 
-" go用(仮)
-if executable('gopls')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ 'workspace_config': {'gopls': {
-        \     'staticcheck': v:true,
-        \     'completeUnimported': v:true,
-        \     'caseSensitiveCompletion': v:true,
-        \     'usePlaceholders': v:true,
-        \     'completionDocumentation': v:true,
-        \     'watchFileChanges': v:true,
-        \     'hoverKind': 'SingleLine',
-        \   }},
-        \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-    autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
-    autocmd FileType go nmap <buffer> ,n <plug>(lsp-next-error)
-    autocmd FileType go nmap <buffer> ,p <plug>(lsp-previous-error)
-  augroup END
-endif
+" 各言語
+autocmd FileType python call s:configure_lsp()
+autocmd FileType go call s:configure_lsp()
+autocmd FileType javascript call s:configure_lsp()
+autocmd FileType typescript call s:configure_lsp()
 
 " 言語ごとにServerが実行されたらする設定を関数化
 function! s:configure_lsp() abort
@@ -323,7 +307,4 @@ endfunction
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '？'}
-let g:lsp_diagnostics_echo_cursor = 1
-
-let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
