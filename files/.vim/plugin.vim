@@ -33,7 +33,6 @@ call plug#begin(expand('~/.vim/plugged'))
 " Basic
 Plug 'Yggdroot/indentLine'                   " インデントを視覚化
 Plug 'airblade/vim-gitgutter'                " 変更箇所表示(git)
-Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'bling/vim-bufferline'                  " buffer list 表示
 Plug 'dhruvasagar/vim-table-mode'            " テーブル作成
 Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
@@ -41,15 +40,18 @@ Plug 'jszakmeister/vim-togglecursor'         " カーソルを設定する
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
-Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
-Plug 'scrooloose/syntastic'                  " 構文チェック
-Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
+
+" 検討
+Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
+Plug 'majutsushi/tagbar'                     " ctagsの扱い
+Plug 'scrooloose/syntastic'                  " 構文チェック
+Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
 Plug 'vim-scripts/grep.vim'                  " -
 
 " SQL
@@ -58,12 +60,12 @@ Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc
 " LSP
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-" complete
+" LSP, complete
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" settings
+" LSP, settings
 Plug 'mattn/vim-lsp-settings'
-" icons
+" LSP, icons
 Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -78,12 +80,12 @@ Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
 
 "" HTML Bundle
 " Plug 'gorodinskiy/vim-coloresque'            " カラーコードプレビュー 重い！
-Plug 'hail2u/vim-css3-syntax'                " -
+" Plug 'hail2u/vim-css3-syntax'                " -
 Plug 'mattn/emmet-vim'                       " -
 Plug 'tpope/vim-haml'                        " -
 
 "" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'          " -
+" Plug 'jelera/vim-javascript-syntax'          " -
 
 " Go
 " Plug 'fatih/vim-go'                          " -
