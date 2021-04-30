@@ -254,24 +254,19 @@ let g:togglecursor_insert = 'line'
 
 " https://kashewnuts.github.io/2019/01/28/move_from_jedivim_to_vimlsp.html
 
-" 各言語
-" autocmd FileType python call s:configure_lsp()
-
-" 言語ごとにServerが実行されたらする設定を関数化
-" function! s:configure_lsp() abort
-  setlocal omnifunc=lsp#complete   " オムニ補完を有効化
-  " LSP用にマッピング
-  nnoremap <buffer> <C-]> :<C-u>LspDefinition<CR>
-  nnoremap <buffer> gd :<C-u>LspDefinition<CR>
-  nnoremap <buffer> gD :<C-u>LspReferences<CR>
-  nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
-  nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
-  nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
-  vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
-  nnoremap <buffer> K :<C-u>LspHover<CR>
-  nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
-  nnoremap <buffer> <F2> :<C-u>LspRename<CR>
-" endfunction
+" 検討
+setlocal omnifunc=lsp#complete   " オムニ補完を有効化
+" 検討, LSP用にマッピング
+nnoremap <buffer> <C-]> :<C-u>LspDefinition<CR>
+nnoremap <buffer> gd :<C-u>LspDefinition<CR>
+nnoremap <buffer> gD :<C-u>LspReferences<CR>
+nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
+nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
+nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
+vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
+nnoremap <buffer> K :<C-u>LspHover<CR>
+nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
+nnoremap <buffer> <F2> :<C-u>LspRename<CR>
 
 " https://mattn.kaoriya.net/software/vim/20191231213507.htm
 
