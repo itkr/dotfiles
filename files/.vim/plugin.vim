@@ -40,6 +40,7 @@ Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'jszakmeister/vim-togglecursor'         " カーソルを設定する
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
+Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
@@ -50,9 +51,6 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 Plug 'vim-scripts/grep.vim'                  " -
-
-"
-Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
@@ -65,6 +63,10 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " settings
 Plug 'mattn/vim-lsp-settings'
+" icons
+Plug 'mattn/vim-lsp-icons'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -249,45 +251,11 @@ let g:togglecursor_insert = 'line'
 " }}}
 
 " ===== LSP =====
-"
-" vim-lsp
+
 " https://kashewnuts.github.io/2019/01/28/move_from_jedivim_to_vimlsp.html
-" TODO: 見直し・更新する
-
-" 各言語の Language Server インストール
-" :LspInstallServer
-
-" デバッグ用設定
-let g:lsp_log_verbose = 1  " デバッグ用ログを出力
-" let g:lsp_log_file = expand('~/.cache/tmp/vim-lsp.log')  " ログ出力のPATHを設定
-
-" 言語用Serverの設定
-
-" Python
-" augroup MyLsp
-"   autocmd!
-"   " pip install python-language-server
-"   if executable('pyls')
-"     " Python用の設定を記載
-"     " workspace_configで以下の設定を記載
-"     " - pycodestyleの設定はALEと重複するので無効にする
-"     " - jediの定義ジャンプで一部無効になっている設定を有効化
-"     autocmd User lsp_setup call lsp#register_server({
-"         \ 'name': 'pyls',
-"         \ 'cmd': { server_info -> ['pyls'] },
-"         \ 'whitelist': ['python'],
-"         \ 'workspace_config': {'pyls': {'plugins': {
-"         \   'pycodestyle': {'enabled': v:false},
-"         \   'jedi_definition': {'follow_imports': v:true, 'follow_builtin_imports': v:true}}}}})
-"     autocmd FileType python call s:configure_lsp()
-"   endif
-" augroup END
 
 " 各言語
 " autocmd FileType python call s:configure_lsp()
-" autocmd FileType go call s:configure_lsp()
-" autocmd FileType javascript call s:configure_lsp()
-" autocmd FileType typescript call s:configure_lsp()
 
 " 言語ごとにServerが実行されたらする設定を関数化
 " function! s:configure_lsp() abort
@@ -305,8 +273,40 @@ let g:lsp_log_verbose = 1  " デバッグ用ログを出力
   nnoremap <buffer> <F2> :<C-u>LspRename<CR>
 " endfunction
 
-" vim-lsp
+" https://mattn.kaoriya.net/software/vim/20191231213507.htm
+
+" LSP, config (検討)
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '？'}
 let g:lsp_diagnostics_echo_cursor = 1
+" LSP, config (検討)
+let g:lsp_diagnostics_enabled = 1
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 200
+" 実験的設定
+let g:lsp_text_edit_enabled = 1
+
+"" LSP,
+if empty(globpath(&rtp, 'autoload/lsp.vim'))
+  finish
+endif
+
+"" LSP,
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
+
+" LSP, Language Server インストール促し
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" LSP, デバッグ用設定
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
