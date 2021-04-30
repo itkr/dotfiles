@@ -151,11 +151,11 @@ let g:bufferline_modified = '*'
 " lightline
 let g:lightline = {
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ],
-            \   'right': [ [ 'anzu', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-            \ },
-            \ 'colorscheme': 'wombat'
-            \ }
+                \   'left': [ [ 'mode', 'paste' ], [ 'currentdir' ], [ 'readonly', 'relativepath', 'modified' ] ],
+                \   'right': [ [ 'anzu', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+                \ },
+                \ 'colorscheme': 'wombat'
+                \ }
 let g:lightline.tabline = {
             \ 'left': [ [ 'bufferline' ] ],
             \ 'right': [ [ 'tabs' ] ] }
@@ -285,22 +285,22 @@ let g:lsp_text_edit_enabled = 1
 
 "" LSP,
 if empty(globpath(&rtp, 'autoload/lsp.vim'))
-  finish
+    finish
 endif
 
 "" LSP,
 function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-  nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> <f2> <plug>(lsp-rename)
-  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 endfunction
 
 " LSP, Language Server インストール促し
 augroup lsp_install
-  au!
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
 " LSP, デバッグ用設定

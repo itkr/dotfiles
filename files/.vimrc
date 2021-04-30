@@ -303,5 +303,5 @@ augroup END
 " =============================================================================
 
 if filereadable(expand('~/.vim/plugin.vim'))
-  source ~/.vim/plugin.vim
+    source ~/.vim/plugin.vim
 endif
