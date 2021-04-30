@@ -252,22 +252,6 @@ let g:togglecursor_insert = 'line'
 
 " ===== LSP =====
 
-" https://kashewnuts.github.io/2019/01/28/move_from_jedivim_to_vimlsp.html
-
-" 検討
-setlocal omnifunc=lsp#complete   " オムニ補完を有効化
-" 検討, LSP用にマッピング
-nnoremap <buffer> <C-]> :<C-u>LspDefinition<CR>
-nnoremap <buffer> gd :<C-u>LspDefinition<CR>
-nnoremap <buffer> gD :<C-u>LspReferences<CR>
-nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
-nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
-nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
-vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
-nnoremap <buffer> K :<C-u>LspHover<CR>
-nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
-nnoremap <buffer> <F2> :<C-u>LspRename<CR>
-
 " https://mattn.kaoriya.net/software/vim/20191231213507.htm
 
 " LSP, config (検討)
@@ -278,7 +262,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 " LSP, config (検討)
 let g:lsp_diagnostics_enabled = 1
 let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_auto_completeopt = 0
+" let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_popup_delay = 200
 " 実験的設定
 let g:lsp_text_edit_enabled = 1
@@ -305,3 +289,23 @@ augroup END
 
 " LSP, デバッグ用設定
 command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
+" https://kashewnuts.github.io/2019/01/28/move_from_jedivim_to_vimlsp.html
+
+" 検討
+function! s:configure_lsp() abort
+    " オムニ補完を有効化
+    setlocal omnifunc=lsp#complete
+    " LSP用にマッピング
+    nnoremap <buffer> <C-]> :<C-u>LspDefinition<CR>
+    nnoremap <buffer> gd :<C-u>LspDefinition<CR>
+    nnoremap <buffer> gD :<C-u>LspReferences<CR>
+    nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
+    nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
+    nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
+    vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
+    nnoremap <buffer> K :<C-u>LspHover<CR>
+    nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
+    nnoremap <buffer> <F2> :<C-u>LspRename<CR>
+endfunction
+autocmd FileType * call s:configure_lsp()
