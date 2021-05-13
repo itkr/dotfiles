@@ -39,8 +39,8 @@ Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'jszakmeister/vim-togglecursor'         " カーソルを設定する
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
+Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
-Plug 'lambdalisue/fern-git-status.vim'
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
