@@ -79,6 +79,11 @@ gitb() {
     git branch | fzf | awk '{printf "%s", $NF;}' | pbcopy
 }
 
+gitc() {
+    branch=$(git branch | fzf | awk '{printf "%s", $NF;}')
+    git co ${branch}
+}
+
 # ########################################
 # Go
 # ########################################
