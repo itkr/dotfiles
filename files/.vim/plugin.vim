@@ -48,6 +48,11 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 
+" 検討. nerdfont
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+
 " 検討
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
@@ -141,6 +146,16 @@ let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
 let g:fern#drawer_width = 40
 " let g:fern#renderer = "nerdfont"
+
+" 検討. fern
+" アイコン
+let g:fern#renderer = 'nerdfont'
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 
 "" grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
