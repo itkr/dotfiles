@@ -11,6 +11,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Sound
+set visualbell
+set noerrorbells
+
 " =============================================================================
 " Mappings
 " =============================================================================

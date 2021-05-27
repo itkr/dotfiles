@@ -144,8 +144,7 @@ cnoreabbrev bd! Bd!
 noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
-let g:fern#drawer_width = 40
-" let g:fern#renderer = "nerdfont"
+let g:fern#drawer_width = 50
 
 " 検討. fern
 " アイコン
@@ -320,8 +319,10 @@ function! s:configure_lsp() abort
     nnoremap <buffer> gD :<C-u>LspReferences<CR>
     nnoremap <buffer> gs :<C-u>LspDocumentSymbol<CR>
     nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
-    nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
-    vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
+    " nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
+    " vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
+    nnoremap <buffer> == :<C-u>LspDocumentFormat<CR>
+    vnoremap <buffer> == :LspDocumentRangeFormat<CR>
     nnoremap <buffer> K :<C-u>LspHover<CR>
     nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
     nnoremap <buffer> <F2> :<C-u>LspRename<CR>
