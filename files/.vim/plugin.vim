@@ -39,8 +39,6 @@ Plug 'itchyny/lightline.vim'                 " airlineっぽいやつ
 Plug 'jszakmeister/vim-togglecursor'         " カーソルを設定する
 Plug 'kannokanno/previm'                     " Markdownをブラウザでプレビューする
 Plug 'kshenoy/vim-signature'                 " markを可視化
-Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
-Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'moll/vim-bbye'                         " Bdelete(window構造を変更せずにbdelete) を追加
 Plug 'ntpeters/vim-better-whitespace'        " 行末スペースのハイライト
 Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
@@ -48,10 +46,18 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 
-" 検討. nerdfont
-Plug 'lambdalisue/nerdfont.vim'
+" 検討. jsdoc
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
+" Fern
+Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/nerdfont.vim'
 
 " 検討
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
