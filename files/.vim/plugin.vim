@@ -46,6 +46,10 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 
+" 検討
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'yuki-yano/fzf-preview.vim'
+
 " 検討. jsdoc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
