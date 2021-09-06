@@ -15,6 +15,7 @@ alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 alias tmux='tmux -2'
 alias vi='vi -u NONE -N'
 alias act='source ~/Scripts/activate.sh'
+alias save_cmd='history -1 >> ~/Desktop/command_log.sh'
 
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'
