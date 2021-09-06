@@ -1,0 +1,3 @@
+*.map
+*.mjs
+node_modules/
