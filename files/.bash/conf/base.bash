@@ -18,9 +18,12 @@ alias act='source ~/Scripts/activate.sh'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
 alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 
-# ubuntu
-alias ls='ls --color=auto'
-# mac
+# ls (Linux)
+if [ "$(uname)" = 'Linux' ]; then
+    alias ls='ls --color=auto -F'
+fi
+
+# ls (Mac OSX)
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'
 fi
