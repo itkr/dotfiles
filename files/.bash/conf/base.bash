@@ -8,6 +8,7 @@ alias fd='find ./ -type f -print | xargs grep'
 alias git='git stash list; git'
 alias gitbr='git branch -r --merged origin/develop | grep -v -E "develop|master"'
 alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(reset)%s %C(red)%d' --date=iso"
+alias save_cmd='history -1 >> ~/Desktop/command_log.sh'
 alias tmux='tmux -2'
 alias vi='vi -u NONE -N'
 
@@ -41,6 +42,7 @@ fi
 # ########################################
 
 export LANG=ja_JP.UTF-8
+# export LANG=C.UTF-8
 
 # ########################################
 # History
