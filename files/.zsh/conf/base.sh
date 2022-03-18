@@ -17,6 +17,12 @@ alias vi='vi -u NONE -N'
 alias act='source ~/Scripts/activate.sh'
 alias save_cmd='history -1 >> ~/Desktop/command_log.sh'
 
+# ls (Linux)
+if [ "$(uname)" = 'Linux' ]; then
+    alias ls='ls --color=auto -F'
+fi
+
+# ls (Mac OSX)
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -FG'
 fi

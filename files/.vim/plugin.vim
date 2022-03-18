@@ -155,6 +155,7 @@ noremap <F3> :Fern . -drawer -toggle -keep<CR>
 let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
 let g:fern#drawer_width = 50
+let g:fern#default_hidden=1
 
 " 検討. fern
 " アイコン
