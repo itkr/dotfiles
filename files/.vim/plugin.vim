@@ -230,13 +230,13 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-""
+"
 if !has("gui_running")
     " CSApprox
     let g:CSApprox_loaded = 1
     " IndentLine
     let g:indentLine_enabled = 1
-    let g:indentLine_concealcursor = 0
+    let g:indentLine_concealcursor = 'inc'
     let g:indentLine_faster = 1
 endif
 
