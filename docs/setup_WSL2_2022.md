@@ -20,8 +20,9 @@ wsl --install
 ## apt packages
 
 ```sh
-sudo apt install build-essential
-# sudo apt install golang-go
+sudo apt update
+# python使うとき必要 (無いと pip install 失敗したりする)
+apt install build-essential libssl-dev tk-dev
 ```
 
 ## homebrew
