@@ -42,7 +42,9 @@ fi
 # ########################################
 
 export LANG=ja_JP.UTF-8
-# export LANG=C.UTF-8
+if [ "$(uname)" = 'Linux' ]; then
+    export LANG=C.UTF-8
+fi
 
 # ########################################
 # History
