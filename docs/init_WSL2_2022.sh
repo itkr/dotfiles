@@ -7,7 +7,7 @@ mkdir -p ~/Projects/github.com/itkr
 cd ~/Projects/github.com/itkr/
 git clone git@github.com:itkr/dotfiles.git
 
-mv .bashrc .bashrc.org
+mv ~/.bashrc ~/.bashrc.org
 ln -s ~/Projects/github.com/itkr/dotfiles/files/.bash/conf/base.bash ~/.bash/conf/base.bash
 ln -s ~/Projects/github.com/itkr/dotfiles/files/.bash/conf/google-cloud-sdk.bash ~/.bash/conf/google-cloud-sdk.bash
 ln -s ~/Projects/github.com/itkr/dotfiles/files/.bash/conf/pyenv.bash ~/.bash/conf/pyenv.bash
