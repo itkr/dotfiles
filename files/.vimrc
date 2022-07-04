@@ -34,6 +34,8 @@ set smartcase
 if executable('pt')  " agから移行
     set grepprg=pt\ --nogroup\ --nocolor
 endif
+" grepなどの後に:cw実行
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Automatically generated file
 set backupskip=/tmp/*,/private/tmp/*  " `crontab -e`が`set nobackup`の指定だけではうまく行かなかった
