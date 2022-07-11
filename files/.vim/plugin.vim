@@ -349,6 +349,10 @@ command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
 " 検討
 function! s:configure_lsp() abort
+    " fernの'K'とLSPの'K'が競合するのでfernを省く
+    if &ft =~ 'fern'
+        return
+    endif
     " オムニ補完を有効化
     setlocal omnifunc=lsp#complete
     " LSP用にマッピング
@@ -361,7 +365,6 @@ function! s:configure_lsp() abort
     " vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
     nnoremap <buffer> == :<C-u>LspDocumentFormat<CR>
     vnoremap <buffer> == :LspDocumentRangeFormat<CR>
-" TODO: fernの'K'と競合するのでfernを省く
     nnoremap <buffer> K :<C-u>LspHover<CR>
     nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
     nnoremap <buffer> <F2> :<C-u>LspRename<CR>
