@@ -46,8 +46,11 @@ Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
 
-" 検討
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" fzf (:GFile)
+" fzf自体の実装
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" fzfのvim用プラグイン
+Plug 'junegunn/fzf.vim'
 " Plug 'yuki-yano/fzf-preview.vim'
 
 " 検討. jsdoc
@@ -183,7 +186,7 @@ augroup fern-settings
   autocmd FileType fern call s:fern_settings()
 augroup END
 
-"" grep.vim
+"" 検討 grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
