@@ -83,8 +83,10 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " LSP, settings
 Plug 'mattn/vim-lsp-settings'
-" LSP, icons
-Plug 'mattn/vim-lsp-icons'
+" LSP, icons (gvim用)
+" Plug 'mattn/vim-lsp-icons'
+
+"" snipets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
@@ -301,6 +303,17 @@ let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': '？'}
 let g:lsp_diagnostics_echo_cursor = 1
+
+" LSP, config (検討)
+" vim-lsp-iconsの代わり
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': '⚠️'}
+let g:lsp_diagnostics_signs_information  = {'text': 'ℹ️'}
+let g:lsp_diagnostics_signs_hint = {'text': '❔'}
+let g:lsp_document_code_action_signs_enabled = 1
+let g:lsp_document_code_action_signs_hint = {'text': '❔'}
+
 " LSP, config (検討)
 let g:lsp_diagnostics_enabled = 1
 let g:asyncomplete_auto_popup = 1
@@ -348,6 +361,7 @@ function! s:configure_lsp() abort
     " vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
     nnoremap <buffer> == :<C-u>LspDocumentFormat<CR>
     vnoremap <buffer> == :LspDocumentRangeFormat<CR>
+" TODO: fernの'K'と競合するのでfernを省く
     nnoremap <buffer> K :<C-u>LspHover<CR>
     nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
     nnoremap <buffer> <F2> :<C-u>LspRename<CR>
