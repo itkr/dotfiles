@@ -58,10 +58,12 @@ Plug 'heavenshell/vim-jsdoc', {
 
 " Fern
 Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim' " Fernでアイコン表示
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
 Plug 'lambdalisue/glyph-palette.vim'
-Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/nerdfont.vim'              " アイコン表示フォント
+" 検討
+Plug 'yuki-yano/fern-preview.vim'            " Fernでプレビュー
 
 " 検討
 Plug 'airblade/vim-rooter'                   " 自動でルートディレクトリへ
@@ -165,6 +167,18 @@ augroup my-glyph-palette
   autocmd! *
   autocmd FileType fern call glyph_palette#apply()
   autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
+" 検討Fern preview
+function! s:fern_settings() abort
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+endfunction
+augroup fern-settings
+  autocmd!
+  autocmd FileType fern call s:fern_settings()
 augroup END
 
 "" grep.vim
