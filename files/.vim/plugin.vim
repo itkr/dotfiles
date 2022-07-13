@@ -144,8 +144,15 @@ endif
 let g:plist_display_format = 'json'  " or 'xml'
 
 " vim-anzu
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
+" anzu-nとポップアップウィンドウの組み合わせ
+command! AnzuPopup call popup_create([anzu#search_status()], {'line': 'cursor+1', 'col': 'cursor+1', 'border': [1,1,1,1], 'moved': 'any'})
+nnoremap <silent><expr> <Plug>(anzu-n-with-popup) "<Plug>(anzu-n):\<C-u>AnzuPopup\<CR>"
+nnoremap <silent><expr> <Plug>(anzu-N-with-popup) "<Plug>(anzu-N):\<C-u>AnzuPopup\<CR>"
+" vim-anzu
+" nmap n <Plug>(anzu-n)
+" nmap N <Plug>(anzu-N)
+nmap n <Plug>(anzu-n-with-popup)
+nmap N <Plug>(anzu-N-with-popup)
 nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
 augroup vim-anzu
