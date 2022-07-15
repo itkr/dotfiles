@@ -148,13 +148,17 @@ let g:plist_display_format = 'json'  " or 'xml'
 command! AnzuPopup call popup_create([anzu#search_status()], {'line': 'cursor+1', 'col': 'cursor+1', 'border': [1,1,1,1], 'moved': 'any'})
 nnoremap <silent><expr> <Plug>(anzu-n-with-popup) "<Plug>(anzu-n):\<C-u>AnzuPopup\<CR>"
 nnoremap <silent><expr> <Plug>(anzu-N-with-popup) "<Plug>(anzu-N):\<C-u>AnzuPopup\<CR>"
+nnoremap <silent><expr> <Plug>(anzu-star-with-popup) "<Plug>(anzu-star):\<C-u>AnzuPopup\<CR>"
+nnoremap <silent><expr> <Plug>(anzu-sharp-with-popup) "<Plug>(anzu-sharp):\<C-u>AnzuPopup\<CR>"
 " vim-anzu
 " nmap n <Plug>(anzu-n)
 " nmap N <Plug>(anzu-N)
+" nmap * <Plug>(anzu-star)
+" nmap # <Plug>(anzu-sharp)
 nmap n <Plug>(anzu-n-with-popup)
 nmap N <Plug>(anzu-N-with-popup)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
+nmap * <Plug>(anzu-star-with-popup)
+nmap # <Plug>(anzu-sharp-with-popup)
 augroup vim-anzu
     autocmd!
     autocmd CursorMoved,CursorMovedI,WinLeave,TabLeave * call anzu#clear_search_status()
