@@ -45,6 +45,8 @@ Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
+" 検証
+Plug 'mattn/vim-maketable'
 
 " fzf (:GFile)
 " fzf自体の実装
@@ -384,3 +386,5 @@ function! s:configure_lsp() abort
     nnoremap <buffer> <F2> :<C-u>LspRename<CR>
 endfunction
 autocmd FileType * call s:configure_lsp()
+
+noremap <F6> :LspDocumentDiagnostics<CR>
