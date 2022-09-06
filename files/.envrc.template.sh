@@ -1,0 +1,5 @@
+export GIT_COMMITTER_NAME="Shota Itakura"
+export GIT_COMMITTER_EMAIL="1531860+itkr@users.noreply.github.com"
+export GIT_AUTHOR_NAME="Shota Itakura"
+export GIT_AUTHOR_EMAIL="1531860+itkr@users.noreply.github.com"
+export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_itkr"
