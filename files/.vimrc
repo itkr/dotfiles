@@ -103,6 +103,17 @@ noremap XX "+x<CR>
 noremap <leader>p "+gp<CR>
 noremap <leader>P "+gP<CR>
 
+" WSL用
+if has('linux')
+    if executable('clip.exe')
+        augroup Yank
+          au!
+          autocmd TextYankPost * :call system('clip.exe', @")
+        augroup END
+        " vnoremap YY :w !clip.exe<CR><ESC>
+    endif
+endif
+
 " Buffer operation
 noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
