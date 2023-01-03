@@ -122,3 +122,9 @@ export FZF_DEFAULT_OPTS='--reverse'
 if (which direnv > /dev/null); then
     eval "$(direnv hook bash)"
 fi
+
+# ########################################
+# homebrew
+# ########################################
+
+export HOMEBREW_EDITOR=vi
