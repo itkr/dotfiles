@@ -22,7 +22,7 @@ wsl --install
 ```sh
 sudo apt update
 # python使うとき必要 (無いと pip install 失敗したりする)
-apt install build-essential libssl-dev tk-dev
+apt install build-essential libssl-dev tk-dev libsqlite3-dev
 ```
 
 ## homebrew
