@@ -21,6 +21,7 @@ alias radio='~/Projects/github.com/itkr/my-radio/play.py'
 
 # ls (Linux)
 if [ "$(uname)" = 'Linux' ]; then
+    eval `dircolors -b ~/.colorrc`
     alias ls='ls --color=auto -F'
 fi
 
@@ -33,6 +34,9 @@ fi
 if (! which pbcopy > /dev/null); then
     if which xsel > /dev/null; then
         alias pbcopy='xsel -b'
+    fi
+    if which clip.exe > /dev/null; then
+        alias pbcopy='clip.exe'
     fi
 fi
 
