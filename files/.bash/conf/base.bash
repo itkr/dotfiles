@@ -1,5 +1,3 @@
-# export PATH=/usr/local/sbin:${PATH}
-
 # ########################################
 # Alias
 # ########################################
@@ -11,9 +9,6 @@ alias gitl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)[%ae] %C(
 alias save_cmd='history -1 >> ~/Desktop/command_log.sh'
 alias tmux='tmux -2'
 alias vi='vi -u NONE -N'
-
-# gh repo view --web
-# alias open_github='open $(git remote get-url origin | sed -e "s/ssh:\/\/git@/https:\/\//g" | sed -e "s/\.git//g")'
 
 alias act='source ~/Scripts/activate.sh'
 alias fmt_python='~/.pyenv/versions/global/bin/python ~/Scripts/fmt_python.py'
