@@ -392,4 +392,4 @@ noremap <F6> :LspDocumentDiagnostics<CR>
 let g:lsp_diagnostics_virtual_text_enabled = 0
 " let g:lsp_diagnostics_virtual_text_align = "right"
 let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_diagnostics_float_delay = 20
+let g:lsp_diagnostics_float_delay = 1000
