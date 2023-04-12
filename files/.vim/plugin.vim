@@ -124,6 +124,9 @@ Plug 'mechatroner/rainbow_csv'
 "" plist
 Plug 'darfink/vim-plist'
 
+"" AI
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 " }}}
