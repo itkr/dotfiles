@@ -92,8 +92,8 @@ Plug 'mattn/vim-lsp-settings'
 " Plug 'mattn/vim-lsp-icons'
 
 "" snipets
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
 
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
@@ -106,8 +106,8 @@ Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
 "" HTML Bundle
 " Plug 'gorodinskiy/vim-coloresque'            " カラーコードプレビュー 重い！
 " Plug 'hail2u/vim-css3-syntax'                " -
-Plug 'mattn/emmet-vim'                       " -
-Plug 'tpope/vim-haml'                        " -
+" Plug 'mattn/emmet-vim'                       " -
+" Plug 'tpope/vim-haml'                        " -
 
 "" Javascript Bundle
 " Plug 'jelera/vim-javascript-syntax'          " -
@@ -116,7 +116,7 @@ Plug 'tpope/vim-haml'                        " -
 " Plug 'fatih/vim-go'                          " -
 
 "" C
-Plug 'justmao945/vim-clang'
+" Plug 'justmao945/vim-clang'
 
 " CSV
 Plug 'mechatroner/rainbow_csv'
@@ -337,7 +337,8 @@ let g:lsp_document_code_action_signs_hint = {'text': '❔'}
 let g:lsp_diagnostics_enabled = 1
 let g:asyncomplete_auto_popup = 1
 " let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 200
+" let g:asyncomplete_popup_delay = 200
+let g:asyncomplete_popup_delay = 2500
 " 実験的設定
 let g:lsp_text_edit_enabled = 1
 

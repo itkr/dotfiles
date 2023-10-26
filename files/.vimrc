@@ -207,7 +207,7 @@ endif
 " {{{
 
 " Syntax
-syntax on
+" syntax on
 
 " Line number
 set number
@@ -318,3 +318,5 @@ augroup END
 if filereadable(expand('~/.vim/plugin.vim'))
     source ~/.vim/plugin.vim
 endif
+
+syntax on
