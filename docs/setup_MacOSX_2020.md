@@ -79,7 +79,7 @@ brew install ansible
 ansibleに任せる？
 
 ```
-export DIR_CONF='~/ghq/github.com/itkr/dotfiled/files/.iterm2'
+export DIR_CONF='~/Projects/github.com/itkr/dotfiles/files/.iterm2'
 defaults write com.googlecode.iterm2 "LoadPrefsFromCustomFolder" -bool true
 defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string ${DIR_CONF}
 ```
