@@ -41,10 +41,10 @@ brew cask install dropbox
     - `Keys`, `Memo` など
 - 設定など必要なものはコピーやシンボリックリンクを貼っておく
 
-## key-gen
+## ssh-keygen
 
 ```
-#
+ssh-keygen -t ed25519 -C 1531860+itkr@users.noreply.github.com
 ```
 
 githubに公開鍵登録
@@ -100,3 +100,7 @@ brew cask install google-japanese-ime
 
 システム環境設定 -> デスクトップとスクリーンセーバ -> スクリーンセーバ -> ホットコーナー
 右上でスクリーンセーバー起動する
+
+## Copilot
+
+https://docs.github.com/ja/copilot/getting-started-with-github-copilot?tool=vimneovim#prerequisites-3
