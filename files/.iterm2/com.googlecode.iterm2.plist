@@ -1090,7 +1090,7 @@
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
-	<false/>
+	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FlashTabBarInFullscreen</key>
@@ -1099,6 +1099,8 @@
 	<false/>
 	<key>FsTabDelay</key>
 	<real>1.1770833730697632</real>
+	<key>HTMLTabTitles</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HiddenAFRStrokeThickness</key>
@@ -1316,7 +1318,7 @@
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<true/>
+			<false/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -1720,7 +1722,7 @@
 			<key>Name</key>
 			<string>Solarize Darcula</string>
 			<key>Non Ascii Font</key>
-			<string>HackNerdFontComplete-Regular 12</string>
+			<string>HackNF-Regular 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -2844,7 +2846,7 @@
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>5</integer>
+	<integer>4</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
