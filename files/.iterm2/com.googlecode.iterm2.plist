@@ -1999,7 +1999,7 @@
 			<key>Terminal Type</key>
 			<string>xterm</string>
 			<key>Title Components</key>
-			<integer>3</integer>
+			<integer>512</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
