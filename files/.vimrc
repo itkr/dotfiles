@@ -31,6 +31,10 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat^=%f:%l:%c:%m
+endif
 if executable('pt')  " agから移行
     set grepprg=pt\ --nogroup\ --nocolor
 endif
