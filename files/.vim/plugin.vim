@@ -45,11 +45,10 @@ Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
-Plug 'rking/ag.vim'                          " ag
 " 検証
-Plug 'mattn/vim-maketable'
+Plug 'mattn/vim-maketable'                   " テーブル作成
 
-" fzf (:GFile)
+" fzf (:GFile, :Agなど)
 " fzf自体の実装
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " fzfのvim用プラグイン
@@ -66,7 +65,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
 Plug 'lambdalisue/fern-renderer-nerdfont.vim' " Fernでアイコン表示
 Plug 'lambdalisue/fern.vim'                  " ファイラ(旧fila.vim)
-Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/glyph-palette.vim'         " アイコンに色をつける
 Plug 'lambdalisue/nerdfont.vim'              " アイコン表示フォント
 " 検討
 Plug 'yuki-yano/fern-preview.vim'            " Fernでプレビュー
@@ -76,7 +75,8 @@ Plug 'airblade/vim-rooter'                   " 自動でルートディレクト
 Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
-Plug 'vim-scripts/grep.vim'                  " -
+Plug 'vim-scripts/grep.vim'                  " grep結果をquickfixに表示
+Plug 'AndrewRadev/quickpeek.vim'             " quickfixをプレビュー
 
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
@@ -180,8 +180,6 @@ let g:fern#disable_viewer_hide_cursor = 1
 " let g:fern#disable_drawer_auto_resize = 1
 let g:fern#drawer_width = 50
 let g:fern#default_hidden=1
-
-" 検討. fern
 " アイコン
 let g:fern#renderer = 'nerdfont'
 " アイコンに色をつける
@@ -257,7 +255,6 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " vim-rooter
-" let g:rooter_use_lcd = 1
 let g:rooter_cd_cmd="lcd"
 
 " vim-session
@@ -398,3 +395,6 @@ let g:lsp_diagnostics_virtual_text_enabled = 0
 " let g:lsp_diagnostics_virtual_text_align = "right"
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_diagnostics_float_delay = 1000
+
+"" Quickpeek
+let g:quickpeek_auto = v:true
