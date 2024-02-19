@@ -45,8 +45,7 @@ Plug 'osyo-manga/vim-anzu'                   " 検索位置を確認する
 Plug 'tpope/vim-commentary'                  " 便利にコメントアウト gc
 Plug 'tyru/open-browser.vim'                 " ブラウザを開く(previmで使用)
 Plug 'vim-scripts/CSApprox'                  " GVim用カラースキーマをCUI用に変換
-" 検証
-Plug 'mattn/vim-maketable'                   " テーブル作成
+Plug 'AndrewRadev/quickpeek.vim'             " quickfixをプレビュー
 
 " fzf (:GFile, :Agなど)
 " fzf自体の実装
@@ -54,12 +53,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " fzfのvim用プラグイン
 Plug 'junegunn/fzf.vim'
 " Plug 'yuki-yano/fzf-preview.vim'
-
-" 検討. jsdoc
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
-\}
 
 " Fern
 Plug 'lambdalisue/fern-git-status.vim'       " fernでgitの変更箇所を表示する
@@ -76,7 +69,13 @@ Plug 'majutsushi/tagbar'                     " ctagsの扱い
 Plug 'scrooloose/syntastic'                  " 構文チェック
 Plug 'sheerun/vim-polyglot'                  " 言語サポート(字下げやシンタックス)
 Plug 'vim-scripts/grep.vim'                  " grep結果をquickfixに表示
-Plug 'AndrewRadev/quickpeek.vim'             " quickfixをプレビュー
+Plug 'mattn/vim-maketable'                   " テーブル作成
+
+" 検討. jsdoc
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 
 " SQL
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
@@ -92,17 +91,17 @@ Plug 'mattn/vim-lsp-settings'
 " LSP, icons (gvim用)
 " Plug 'mattn/vim-lsp-icons'
 
-"" snipets
-" Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/vim-vsnip-integ'
-
 "" Session
 Plug 'xolox/vim-misc'                        " セッション管理
 Plug 'xolox/vim-session'                     " セッション管理
 
 " Color
 Plug 'chriskempson/vim-tomorrow-theme'       " colorscheme
-" Plug 'yasukotelin/shirotelin'
+" Plug 'yasukotelin/shirotelin'                " colorscheme
+
+"" snipets
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
 
 "" HTML Bundle
 " Plug 'gorodinskiy/vim-coloresque'            " カラーコードプレビュー 重い！
@@ -208,7 +207,8 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " bufferline
-let g:bufferline_modified = '*'
+" let g:bufferline_modified = '*'
+let g:bufferline_modified = '🔵'
 
 " lightline
 let g:lightline = {
