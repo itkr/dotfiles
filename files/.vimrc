@@ -211,7 +211,8 @@ endif
 " {{{
 
 " Syntax
-" syntax on
+syntax on
+set regexpengine=0
 
 " Line number
 set number
@@ -323,4 +324,5 @@ if filereadable(expand('~/.vim/plugin.vim'))
     source ~/.vim/plugin.vim
 endif
 
-syntax on
+" syntax on
+" set regexpengine=0
