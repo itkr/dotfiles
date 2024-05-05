@@ -128,3 +128,4 @@ fi
 # ########################################
 
 export HOMEBREW_EDITOR=vi
+eval "$(/opt/homebrew/bin/brew shellenv)"
