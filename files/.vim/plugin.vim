@@ -81,7 +81,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'mattn/vim-sqlfmt'                      " SQL整形(go get github.com/jackc/sqlfmt/...)
 
 " LSP
-Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/async.vim'            " vim-lspに内包され、不要になった
 Plug 'prabirshrestha/vim-lsp'
 " LSP, complete
 Plug 'prabirshrestha/asyncomplete.vim'
