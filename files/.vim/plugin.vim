@@ -329,7 +329,7 @@ let g:lsp_diagnostics_signs_warning = {'text': '⚠️'}
 let g:lsp_diagnostics_signs_information  = {'text': 'ℹ️'}
 let g:lsp_diagnostics_signs_hint = {'text': '❔'}
 let g:lsp_document_code_action_signs_enabled = 1
-let g:lsp_document_code_action_signs_hint = {'text': '❔'}
+let g:lsp_document_code_action_signs_hint = {'text': '＞'}
 
 " LSP, config (検討)
 let g:lsp_diagnostics_enabled = 1
