@@ -129,3 +129,7 @@ fi
 
 export HOMEBREW_EDITOR=vi
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# export NODE_EXTRA_CA_CERTS=${HOME}/my-company-cert.pem
+# export NODE_TLS_REJECT_UNAUTHORIZED=0
