@@ -133,3 +133,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # export NODE_EXTRA_CA_CERTS=${HOME}/my-company-cert.pem
 # export NODE_TLS_REJECT_UNAUTHORIZED=0
+# GUI用
+# launchctl setenv NODE_TLS_REJECT_UNAUTHORIZED 0
