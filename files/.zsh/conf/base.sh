@@ -116,20 +116,19 @@ export BAT_THEME="TwoDark"
 export FZF_DEFAULT_OPTS='--reverse'
 
 # ########################################
-# direnv
-# ########################################
-
-if (which direnv > /dev/null); then
-    eval "$(direnv hook zsh)"
-fi
-
-# ########################################
 # homebrew
 # ########################################
 
 export HOMEBREW_EDITOR=vi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# ########################################
+# direnv
+# ########################################
+
+if (which direnv > /dev/null); then
+    eval "$(direnv hook zsh)"
+fi
 
 # export NODE_EXTRA_CA_CERTS=${HOME}/my-company-cert.pem
 # export NODE_TLS_REJECT_UNAUTHORIZED=0
